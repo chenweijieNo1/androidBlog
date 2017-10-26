@@ -1,0 +1,15 @@
+# Header
+menu:
+  Home: /
+  Archives: /androidBlog/archives/
+  Tag: /androidBlog/tags/
+  Github: https://github.com/chenweijieNo1
+rss: /atom.xml
+
+# Content
+excerpt_link: More...
+fancybox: true
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
