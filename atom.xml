@@ -6,7 +6,7 @@
   <link href="/androidBlog/atom.xml" rel="self"/>
   
   <link href="https://chenweijieno1.github.io/androidBlog/"/>
-  <updated>2017-10-25T08:39:48.878Z</updated>
+  <updated>2017-10-27T08:51:42.240Z</updated>
   <id>https://chenweijieno1.github.io/androidBlog/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo+Github搭建属于自己的博客</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/10/26/hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/10/26/hexo使用攻略/</id>
+    <published>2017-10-25T16:00:00.000Z</published>
+    <updated>2017-10-27T08:51:42.240Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平时我们会写写文章，偶尔看到一些精彩的东西会做点记录，但是会经常乱放，要用到时找起来麻烦，有时会忘记放在哪了，所以想着搭建一个博客来记录这些东西，现在大家使用Hexo比较多，因此该文章主要介绍如何搭建Hexo，以及搭建过程中出现的一些问题，最后列出一些常用的命令.</p><p><a href="http://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="external">http://www.cnblogs.com/visugar/p/6821777.html</a></p><p>常见问题：<br><a href="http://blog.csdn.net/nathan1987_/article/details/50322493" target="_blank" rel="external">http://blog.csdn.net/nathan1987_/article/details/50322493</a></p><p>使用命令：<br><a href="http://www.jianshu.com/p/3a8dba06856a" target="_blank" rel="external">http://www.jianshu.com/p/3a8dba06856a</a></p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;平时我们会写写文章，偶尔看到一些精彩的东西会做点记录，但是会经常乱放，要用到时找起来麻烦，有时会忘记放在哪了，所以想着搭建一个博客来记录这些东西，现在大家使用Hexo比较多，因此该文章主要介绍如何搭建Hexo，以及搭建过程中出现的一些问题，最后列出一些常用的命令.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/visugar/p/6821777.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/visugar/p/6821777.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;常见问题：&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/nathan1987_/article/details/50322493&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/nathan1987_/article/details/50322493&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用命令：&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/3a8dba06856a&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/3a8dba06856a&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://chenweijieno1.github.io/androidBlog/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://chenweijieno1.github.io/androidBlog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>系统集成项目管理工程师知识点记录</title>
     <link href="https://chenweijieno1.github.io/androidBlog/2017/10/26/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95/"/>
     <id>https://chenweijieno1.github.io/androidBlog/2017/10/26/系统集成项目管理工程师知识点记录/</id>
-    <published>2017-10-26T03:28:46.303Z</published>
-    <updated>2017-10-25T08:39:48.878Z</updated>
+    <published>2017-10-25T16:00:00.000Z</published>
+    <updated>2017-10-27T08:08:45.416Z</updated>
     
     <content type="html"><![CDATA[<h3 id="1、请简要叙述合同索赔流程"><a href="#1、请简要叙述合同索赔流程" class="headerlink" title="1、请简要叙述合同索赔流程"></a>1、请简要叙述合同索赔流程</h3><ol><li>在索赔事项发生后的28天以内，以书面的索赔通知书形式向甲公司提出索赔要求；</li><li>在索赔通知书发出后的28天内，向甲公司报送补偿经济拔失的索赔报告及有关资料；</li><li>甲公司给予答复，对于不同意的，可要求乙部门进一步补充索赔理由和证据；</li><li>甲公司在收到索赔报告的有关资料后28天未予答复，表示认同索赔；</li><li>如果索赔事件持续进行时，乙部门应当阶段性向甲公司发出索赔意向，在索赔 事件终了后28天内，向甲公司送交索赔的有关资料和最终索赔报告；</li><li>甲公司或乙部门不能接受索赔结果的，可进入仲裁或诉讼程序；</li></ol><a id="more"></a><p>总结来说，就如下流程：提出索赔要求-&gt;报送索赔资料-&gt;监理工程师答复-&gt;监理工程师逾期答复后果-&gt;持续索赔-&gt;仲裁与诉讼</p><p>注意点：双方直接签证补充协议的做法是不正确的。在政府釆购法中明确要求追加项目不得超过原合总金额的10%</p><h3 id="2、简述范围变更控制的基本流程"><a href="#2、简述范围变更控制的基本流程" class="headerlink" title="2、简述范围变更控制的基本流程"></a>2、简述范围变更控制的基本流程</h3><ol><li>编写范围说明书，进行范围确认，建立基线。 </li><li>需求变更以书面的规定格式提出，提交给CCB。 </li><li>CCB对变更申请进行论证、评估，评估对项目的进度、成本、质量等影响大小。 </li><li>需求变更以书面的方式获得通过，并修改进度计划、成本计划等，未获通过的给出原因。</li><li>分派给项目组进行变更的实施。并通知所有相关干系人。</li><li>监督并控制变更的实施过程，处理产生的问题。 </li><li>定期评估变更对项目绩效的影响，作为历史数据归入组织过程资产，有利于以后的评估准确。</li></ol><h3 id="3、项目可行性研究的主要步骤"><a href="#3、项目可行性研究的主要步骤" class="headerlink" title="3、项目可行性研究的主要步骤"></a>3、项目可行性研究的主要步骤</h3><ol><li>初步可行性研究</li><li>详细可行性研究</li><li>项目综合论证</li><li>项目可行性评估</li><li>项目可行性研究报告编写、提交和获得批准</li></ol><h3 id="4、关键路径分析和总时差、自由时差计算"><a href="#4、关键路径分析和总时差、自由时差计算" class="headerlink" title="4、关键路径分析和总时差、自由时差计算"></a>4、关键路径分析和总时差、自由时差计算</h3><p>详细知识请参考：<a href="http://blog.csdn.net/moshengtan/article/details/13001751" target="_blank" rel="external">http://blog.csdn.net/moshengtan/article/details/13001751</a></p><p>如何计算ES,EF,LS,LF？<br>前推法来计算最早时间   某一活动的最早开始时间（ES）=指向它的所有紧前活动的最早结束时间的最大值。   某一活动的最早结束时间（EF）=ES+T（作业时间）  逆推法来计算最迟时间   某一活动的最迟结束时间（LF）=指向它的所有紧后活动的最迟开始时间的最小值。   某一活动的最迟开始时间（LS）=LF-T（作业时间）</p><p>总时差与自由时差的区别？<br>总时差是指在不延误项目完成日期或违反进度因素的前提下，某活动可以推迟的时间。  总时差=LS-ES=LF-EF<br>自由时差是指在不影响紧后活动最早开始的情况下，当前活动可以推迟的时间。   自由时差=(后一活动)ES-(前一活动的)EF    所以总时差影响总工期，自由时差影响紧后活动。</p><p>计算关键路径的步骤：</p><ol><li>用有方向的线段标出各结点的紧前活动和紧后活动的关系，使之成为一个有方向的网络图（PDM）   </li><li>用正推和逆推法计算出各个活动的ES,LS,EF,LF，并计算出各个活动的自由时差。找出所有总时差为零或为负的活动，就是关键活动。  </li><li>关键路径上的活动持续时间决定了项目的工期，总和就是项目工期。</li></ol><h3 id="5、信息系统工程监理活动的主要内容括"><a href="#5、信息系统工程监理活动的主要内容括" class="headerlink" title="5、信息系统工程监理活动的主要内容括"></a>5、信息系统工程监理活动的主要内容括</h3><p>“四控、三管、一协调”：<br>四控：进度控制、质量控制、成本控制、变更控制<br>三管：合同管理、安全管理、文档管理<br>一协调：沟通与协调业主、承建方、设备和材料供应商之间的关系</p><h3 id="6、信息系统集成项目的验收工作步骤"><a href="#6、信息系统集成项目的验收工作步骤" class="headerlink" title="6、信息系统集成项目的验收工作步骤"></a>6、信息系统集成项目的验收工作步骤</h3><p>系统测试 -&gt; 系统的试运行  -&gt; 系统的文档验收  -&gt; 项目的最终验收报告</p><h3 id="7、招标文件"><a href="#7、招标文件" class="headerlink" title="7、招标文件"></a>7、招标文件</h3><p>招标文件应当包括招标项目的技术要求、对投标人资格审查的标准、投标报价要求和评标标准等所有实质性要求和条件，以及拟签订合同的主要条款。</p><h3 id="8、项目范围管理活动"><a href="#8、项目范围管理活动" class="headerlink" title="8、项目范围管理活动"></a>8、项目范围管理活动</h3><p>编制范围管理计划、范围定义、创建工作分解结构、范围确认、范围控制</p><h3 id="9、挣值管理法中的PV、EV、AC、SV、CV、SPI、CPI"><a href="#9、挣值管理法中的PV、EV、AC、SV、CV、SPI、CPI" class="headerlink" title="9、挣值管理法中的PV、EV、AC、SV、CV、SPI、CPI"></a>9、挣值管理法中的PV、EV、AC、SV、CV、SPI、CPI</h3><p>PV：计划值，在即定时间点前计划完成活动或WBS组件工作的预算成本。<br>    记忆技巧：PLaned，计划，Value，数值，简写是PV </p><p>AC：实际成本，在即定时间段内实比分完成工作发生的实际总成本。<br>    记忆技巧：Actual，实际的，cost，成本，简写是AC </p><p>EV：挣值，在即定时间段内实际完工工作的预算成本。<br>    记忆技巧：Earn，挣，Value，数值，简写的EV</p><p> 以下以公式中，以S开头的缩写，都是表示进度的，schedule。以C开头的缩写，都是表示成本的，cost。而且有一个规律，计算公式都是EV开头；偏差是用减法，即然是减法，那么肯定也是跟0比较；指数是用除法，那么也肯定是跟1比较。</p><p> 进度偏差SV＝EV－PV，即然是进度方面的偏差，计算的肯定是进度方面的内容，那么上面两个参数PV、AC那个是跟进度有关系呢？肯定是PV计划值了，所以公式SV＝EV－PV的记忆就出来了。SV&gt;0，进度超前，SV&lt;0，进度落后。 </p><p> 成本偏差CV＝EV－AC，同上道理，成本方面的偏差，计算的也肯定是成本方面的内容，那么上面两个参数PV、AC那个是跟成本有关系的呢？肯定是AC实际成本了。所以公式CV＝EV－AC的记忆也出来了。CV&gt;0，成本节约，CV&lt;0，成本超支。 </p><p> 进度绩效指数SPI＝EV/PV，也好理解了，S开头的缩写，肯定是关于进度方面指数了，公式以EV作为开头的，SPI＝1，进度与计划相符，SPI&gt;1，进度超前，SPI&lt;1，进度落后。</p><p> 成本绩效指数CPI＝EV/AC，C开头的缩写，关于成本方面指数，公式以EV开头，CPI＝1，资金使用效率一般；CPI&gt;1成本节约，资金使用效率高；CPI&lt;1，成本超支，资金使用效率低。</p>]]></content>
     
@@ -38,27 +63,10 @@
     
     </summary>
     
+      <category term="系统集成项目管理工程师" scheme="https://chenweijieno1.github.io/androidBlog/categories/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E7%A8%8B%E5%B8%88/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Hexo+Github搭建属于自己的博客</title>
-    <link href="https://chenweijieno1.github.io/androidBlog/2017/10/26/hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5/"/>
-    <id>https://chenweijieno1.github.io/androidBlog/2017/10/26/hexo使用攻略/</id>
-    <published>2017-10-26T03:28:46.302Z</published>
-    <updated>2017-10-20T09:11:55.512Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>平时我们会写写文章，偶尔看到一些精彩的东西会做点记录，但是会经常乱放，要用到时找起来麻烦，有时会忘记放在哪了，所以想着搭建一个博客来记录这些东西，现在大家使用Hexo比较多，因此该文章主要介绍如何搭建Hexo，以及搭建过程中出现的一些问题，最后列出一些常用的命令.</p><p><a href="http://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="external">http://www.cnblogs.com/visugar/p/6821777.html</a></p><p>常见问题：<br><a href="http://blog.csdn.net/nathan1987_/article/details/50322493" target="_blank" rel="external">http://blog.csdn.net/nathan1987_/article/details/50322493</a></p><p>使用命令：<br><a href="http://www.jianshu.com/p/3a8dba06856a" target="_blank" rel="external">http://www.jianshu.com/p/3a8dba06856a</a></p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;平时我们会写写文章，偶尔看到一些精彩的东西会做点记录，但是会经常乱放，要用到时找起来麻烦，有时会忘记放在哪了，所以想着搭建一个博客来记录这些东西，现在大家使用Hexo比较多，因此该文章主要介绍如何搭建Hexo，以及搭建过程中出现的一些问题，最后列出一些常用的命令.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/visugar/p/6821777.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/visugar/p/6821777.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;常见问题：&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/nathan1987_/article/details/50322493&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/nathan1987_/article/details/50322493&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;使用命令：&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/3a8dba06856a&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/3a8dba06856a&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
+      <category term="系统集成项目管理工程师" scheme="https://chenweijieno1.github.io/androidBlog/tags/%E7%B3%BB%E7%BB%9F%E9%9B%86%E6%88%90%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E7%A8%8B%E5%B8%88/"/>
     
   </entry>
   
