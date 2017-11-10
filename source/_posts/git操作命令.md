@@ -1,5 +1,8 @@
 ---
 title: git操作命令集合
+categories: git
+tags:
+     - git
 ---
 ### 常用命令
 
