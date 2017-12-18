@@ -6,7 +6,7 @@
   <link href="/androidBlog/atom.xml" rel="self"/>
   
   <link href="https://chenweijieno1.github.io/androidBlog/"/>
-  <updated>2017-11-10T08:02:09.119Z</updated>
+  <updated>2017-12-18T03:49:27.206Z</updated>
   <id>https://chenweijieno1.github.io/androidBlog/</id>
   
   <author>
@@ -17,17 +17,141 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>WebViewStudy</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/12/18/WebViewStudy/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/12/18/WebViewStudy/</id>
+    <published>2017-12-18T03:45:00.000Z</published>
+    <updated>2017-12-18T03:49:27.206Z</updated>
+    
+    <content type="html"><![CDATA[<p>WebView 全方面的使用，JS交互、进度条、发短信、打电话、发邮件、上传图片、字体设置、视频全屏播放等<br><a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external">WebView使用Demo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;WebView 全方面的使用，JS交互、进度条、发短信、打电话、发邮件、上传图片、字体设置、视频全屏播放等&lt;br&gt;&lt;a href=&quot;https://github.com/youlookwhat/WebViewStudy&quot; target=&quot;_blank&quot; rel=&quot;exter
+      
+    
+    </summary>
+    
+      <category term="android常用知识" scheme="https://chenweijieno1.github.io/androidBlog/categories/android%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="android常用知识" scheme="https://chenweijieno1.github.io/androidBlog/tags/android%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android解决输入法键盘遮盖布局问题</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/12/15/android%E8%A7%A3%E5%86%B3%E8%BE%93%E5%85%A5%E6%B3%95%E9%94%AE%E7%9B%98%E9%81%AE%E7%9B%96%E5%B8%83%E5%B1%80%E9%97%AE%E9%A2%98/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/12/15/android解决输入法键盘遮盖布局问题/</id>
+    <published>2017-12-15T07:12:55.000Z</published>
+    <updated>2017-12-15T07:16:15.306Z</updated>
+    
+    <content type="html"><![CDATA[<p>代码如下所示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * addLayoutListener方法如下</div><div class="line">     * @param main 根布局</div><div class="line">     * @param scroll 需要显示的最下方View</div><div class="line">     */</div><div class="line">public void addLayoutListener(final View main, final View scroll) &#123;</div><div class="line">        main.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() &#123;</div><div class="line">            @Override</div><div class="line">            public void onGlobalLayout() &#123;</div><div class="line">                Rect rect = new Rect();</div><div class="line">                //1、获取main在窗体的可视区域</div><div class="line">                main.getWindowVisibleDisplayFrame(rect);</div><div class="line">                //2、获取main在窗体的不可视区域高度，在键盘没有弹起时，main.getRootView().getHeight()调节度应该和rect.bottom高度一样</div><div class="line">                int mainInvisibleHeight = main.getRootView().getHeight() - rect.bottom;</div><div class="line">                int screenHeight = main.getRootView().getHeight();//屏幕高度</div><div class="line">                RelativeLayout scrollView = (RelativeLayout) main.findViewById(R.id.input_panel);</div><div class="line">                //3、不可见区域大于屏幕本身高度的1/4：说明键盘弹起了</div><div class="line">                if (mainInvisibleHeight &gt; screenHeight / 4) &#123;</div><div class="line">                    int[] location = new int[2];</div><div class="line">                    scroll.getLocationInWindow(location);</div><div class="line">                    // 4、获取Scroll的窗体坐标，算出main需要滚动的高度</div><div class="line">                    int srollHeight = (location[1] + scroll.getHeight()) - rect.bottom;</div><div class="line">                    //5、让界面整体上移键盘的高度</div><div class="line">                    if (viewScrollReset) &#123;</div><div class="line">                        scrollView.scrollTo(0, srollHeight + 10);</div><div class="line">                        viewScrollReset = false;</div><div class="line">                    &#125;</div><div class="line">                &#125; else &#123;</div><div class="line">                    //3、不可见区域小于屏幕高度1/4时,说明键盘隐藏了，把界面下移，移回到原有高度</div><div class="line">                    scrollView.scrollTo(0, 0);</div><div class="line">                    viewScrollReset = true;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;代码如下所示：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div cla
+      
+    
+    </summary>
+    
+      <category term="android常见问题" scheme="https://chenweijieno1.github.io/androidBlog/categories/android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+    
+      <category term="android常见问题" scheme="https://chenweijieno1.github.io/androidBlog/tags/android%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown的常用语法</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/12/15/Markdown%E7%9A%84%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/12/15/Markdown的常用语法/</id>
+    <published>2017-12-15T06:17:11.000Z</published>
+    <updated>2017-12-15T06:53:44.409Z</updated>
+    
+    <content type="html"><![CDATA[<p>注意：Markdown使用#、+、*等符号来标记， 符号后面必须跟上至少1个空格才有效！</p><h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown当中设置标题，有两种方式：<br>第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br>第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p><h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>支持有序列表和无序列表</p><p>无序列表使用-、+和*作为列表标记</p><p>有序列表则使用数字加英文句点.来表示<br><a id="more"></a></p><h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>引用以&gt;来表示，引用中支持多级引用、标题、列表、代码块、分割线等常规语法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt; 这是一段引用    //在`&gt;`后面有 1 个空格</div><div class="line">&gt; </div><div class="line">&gt;     这是引用的代码块形式    //在`&gt;`后面有 5 个空格</div><div class="line">&gt;     </div><div class="line">&gt; 代码例子：</div><div class="line">&gt;   </div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&gt; 一级引用</div><div class="line">&gt; &gt; 二级引用</div><div class="line">&gt; &gt; &gt; 三级引用</div><div class="line"></div><div class="line">&gt; #### 这是一个四级标题</div><div class="line">&gt; </div><div class="line">&gt; 1. 这是第一行列表项</div><div class="line">&gt; 2. 这是第二行列表项</div></pre></td></tr></table></figure><h4 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h4><blockquote><p>两个<em>或-代表加粗，一个</em>或-代表斜体，<del>代表删除</del> </p></blockquote><h4 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h4><p>图片与链接的语法很像，区别在一个 ! 号。二者格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">图片：![]()    ![图片文本(可忽略)](图片地址)</div><div class="line">链接：[]()     [链接文本](链接地址)</div></pre></td></tr></table></figure><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><p>代码分为行内代码和代码块。</p><p>行内代码使用 <code>代码</code> 标识，可嵌入文字中</p><p>代码块使用4个空格或```标识</p><p>代码语法高亮在 ```后面加上空格和语言名称即可</p><h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><p>表格对齐格式：</p><p>居左：:—-<br>居中：:—-:或—–<br>居右：—-:</p><p>例子：</p><table><thead><tr><th style="text-align:left">标题</th><th style="text-align:center">标题</th><th style="text-align:right">标题</th></tr></thead><tbody><tr><td style="text-align:left">居左测试文本</td><td style="text-align:center">居中测试文本</td><td style="text-align:right">居右测试文本</td></tr><tr><td style="text-align:left">居左测试文本1</td><td style="text-align:center">居中测试文本2</td><td style="text-align:right">居右测试文本3</td></tr><tr><td style="text-align:left">居左测试文本11</td><td style="text-align:center">居中测试文本22</td><td style="text-align:right">居右测试文本33</td></tr><tr><td style="text-align:left">居左测试文本111</td><td style="text-align:center">居中测试文本222</td><td style="text-align:right">居右测试文本333</td></tr></tbody></table><h4 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h4><p>一行中用三个以上的*、-、_来建立一个分隔线，行内不能有其他东西。也可以在符号间插入空格。</p><h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><p>在行尾添加两个空格加回车表示换行</p><p>参考自：<a href="http://www.jianshu.com/p/82e730892d42" target="_blank" rel="external">Markdown的常用语法(个人总结)</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注意：Markdown使用#、+、*等符号来标记， 符号后面必须跟上至少1个空格才有效！&lt;/p&gt;
+&lt;h4 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h4&gt;&lt;p&gt;在Markdown当中设置标题，有两种方式：&lt;br&gt;第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。&lt;br&gt;第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）&lt;/p&gt;
+&lt;h4 id=&quot;列表&quot;&gt;&lt;a href=&quot;#列表&quot; class=&quot;headerlink&quot; title=&quot;列表&quot;&gt;&lt;/a&gt;列表&lt;/h4&gt;&lt;p&gt;支持有序列表和无序列表&lt;/p&gt;
+&lt;p&gt;无序列表使用-、+和*作为列表标记&lt;/p&gt;
+&lt;p&gt;有序列表则使用数字加英文句点.来表示&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Markdown" scheme="https://chenweijieno1.github.io/androidBlog/categories/Markdown/"/>
+    
+    
+      <category term="Markdown" scheme="https://chenweijieno1.github.io/androidBlog/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo发布博客引用自带图片的方法</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/12/15/Hexo%E5%8F%91%E5%B8%83%E5%8D%9A%E5%AE%A2%E5%BC%95%E7%94%A8%E8%87%AA%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/12/15/Hexo发布博客引用自带图片的方法/</id>
+    <published>2017-12-15T02:34:32.000Z</published>
+    <updated>2017-12-15T02:48:10.358Z</updated>
+    
+    <content type="html"><![CDATA[<p>有两种方法，第一种是不用插件的情况，第二种是使用一种hexo的插件。无论哪种方法都有一个共同的前提：修改_config.yml配置文件post_asset_folder项为true。</p><p>创建博客必须使用命令创建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo new [layout] &lt;title&gt;</div><div class="line">其中的layout项可以省略，例如：</div><div class="line">hexo new &quot;这是一个新的博客&quot;</div></pre></td></tr></table></figure></p><p>使用完命令之后，在source/_post文件夹里面就会出现一个“这是一个新的博客.md”的文件和一个“这是一个新的博客”的文件夹。<br>下一步就是把需要的图片放到新创建的那个文件夹里面去。</p><p>最后有两种方式来引用图片：<br><a id="more"></a></p><p>第一种方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img 这是一个新的博客的图片.jpg 这是一个新的博客的图片的说明 %&#125;</div></pre></td></tr></table></figure></p><p>用此种方法，而不是以前的<img src="" alt="">方法，前提是你的hexo的版本是hexo3以上，到package.json里面看一下吧。如果不是hexo3以上的版本，那就只能用第二种方法了：hexo插件的方法</p><p>插件的<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="external">链接</a></p><p>安装：npm install hexo-asset-image –save</p><p>之后就可以按照正常的方法使用的，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">我现在写了一个段落，并且想在这个段落的某一个地方[图片上传失败...(image-43fc5f-1510018038370)]引入一张图片</div></pre></td></tr></table></figure></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">我现在写了一个段落，并且想在这个段落的某一个地方[图片上传失败...(image-f9b1fb-1510018038370)]引入一张图片</div></pre></td></tr></table></figure><p>此两种方法除了操作有些区别之外，在图片的显示上也略有不同，第一种的图片信息是会显示出来的，而第二种中括号里面的信息是不会显示的。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有两种方法，第一种是不用插件的情况，第二种是使用一种hexo的插件。无论哪种方法都有一个共同的前提：修改_config.yml配置文件post_asset_folder项为true。&lt;/p&gt;
+&lt;p&gt;创建博客必须使用命令创建：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;hexo new [layout] &amp;lt;title&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;其中的layout项可以省略，例如：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;hexo new &amp;quot;这是一个新的博客&amp;quot;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;使用完命令之后，在source/_post文件夹里面就会出现一个“这是一个新的博客.md”的文件和一个“这是一个新的博客”的文件夹。&lt;br&gt;下一步就是把需要的图片放到新创建的那个文件夹里面去。&lt;/p&gt;
+&lt;p&gt;最后有两种方式来引用图片：&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://chenweijieno1.github.io/androidBlog/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://chenweijieno1.github.io/androidBlog/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Studio Git .gitignore操作</title>
+    <link href="https://chenweijieno1.github.io/androidBlog/2017/12/15/Android-Studio-Git-gitignore%E6%93%8D%E4%BD%9C/"/>
+    <id>https://chenweijieno1.github.io/androidBlog/2017/12/15/Android-Studio-Git-gitignore操作/</id>
+    <published>2017-12-15T02:26:36.000Z</published>
+    <updated>2017-12-15T02:31:17.775Z</updated>
+    
+    <content type="html"><![CDATA[<p>在push项目到GitHub的时候，忽略这些文件需要做的步骤如下：<br>  1.在项目目录下找到.gitignore文件（一般有两个地方存在该文件：一是根目录下，一是app目录下），如果没有找到该文件就创建一个 。该文件主要写明需要忽略的文件。<br>  2.对于Android项目来说，有一个标准的需要忽略的文件（当然，也可以根据自己的项目而定），在GitHub上去下载Android.gitignore文件。下面为Android.gitignore文件的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;span style=&quot;font-size:14px;&quot;&gt;# Built application files</div><div class="line">*.apk</div><div class="line">*.ap_</div><div class="line"></div><div class="line"># Files for the Dalvik VM</div><div class="line">*.dex</div><div class="line"></div><div class="line"># Java class files</div><div class="line">*.class</div><div class="line"></div><div class="line"># Generated files</div><div class="line">bin/</div><div class="line">gen/</div><div class="line">out/</div><div class="line"></div><div class="line"># Gradle files</div><div class="line">.gradle/</div><div class="line">build/</div><div class="line"></div><div class="line"># Local configuration file (sdk path, etc)</div><div class="line">local.properties</div><div class="line"></div><div class="line"># Proguard folder generated by Eclipse</div><div class="line">proguard/</div><div class="line"></div><div class="line"># Log Files</div><div class="line">*.log</div><div class="line"></div><div class="line"># Android Studio Navigation editor temp files</div><div class="line">.navigation/</div><div class="line"></div><div class="line"># Android Studio captures folder</div><div class="line">captures/</div><div class="line"></div><div class="line"># Intellij</div><div class="line">*.iml</div><div class="line"></div><div class="line"># Keystore files</div><div class="line">*.jks&lt;/span&gt;</div></pre></td></tr></table></figure></p><a id="more"></a><p>它主要的写法规则为：”#”表示注释，”*”表示通配符，可多个，”/“表示目录，”!”表示不忽略匹配到的文件或目录，”?”表示通配单个字符，”[]”表示包含单个字符的匹配列表。</p><p> 3.git命令操作</p> <img src="/androidBlog/2017/12/15/Android-Studio-Git-gitignore操作/gititnore1.png" alt="gititnore1.png" title=""> <img src="/androidBlog/2017/12/15/Android-Studio-Git-gitignore操作/gititnore2.png" alt="gititnore2.png" title=""><p>接下来只需git add. ，git commit -m “comment” ，git push就行了（注意在app目录下也有需要忽略的文件）。这样上传到GitHub上的项目就忽略了不需要进行版本控制的文件。另外，从GitHub上Download下来的这个项目，在导入Android Studio中时，应该使用Import Project。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在push项目到GitHub的时候，忽略这些文件需要做的步骤如下：&lt;br&gt;  1.在项目目录下找到.gitignore文件（一般有两个地方存在该文件：一是根目录下，一是app目录下），如果没有找到该文件就创建一个 。该文件主要写明需要忽略的文件。&lt;br&gt;  2.对于Android项目来说，有一个标准的需要忽略的文件（当然，也可以根据自己的项目而定），在GitHub上去下载Android.gitignore文件。下面为Android.gitignore文件的内容：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;span style=&amp;quot;font-size:14px;&amp;quot;&amp;gt;# Built application files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.apk&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.ap_&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Files for the Dalvik VM&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.dex&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Java class files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.class&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Generated files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;bin/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;gen/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;out/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Gradle files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.gradle/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;build/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Local configuration file (sdk path, etc)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;local.properties&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Proguard folder generated by Eclipse&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;proguard/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Log Files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.log&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Android Studio Navigation editor temp files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.navigation/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Android Studio captures folder&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;captures/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Intellij&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.iml&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# Keystore files&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*.jks&amp;lt;/span&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="https://chenweijieno1.github.io/androidBlog/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://chenweijieno1.github.io/androidBlog/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>git操作命令集合</title>
     <link href="https://chenweijieno1.github.io/androidBlog/2017/10/30/git%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"/>
     <id>https://chenweijieno1.github.io/androidBlog/2017/10/30/git操作命令/</id>
     <published>2017-10-30T02:01:52.674Z</published>
-    <updated>2017-11-10T08:02:09.119Z</updated>
+    <updated>2017-12-18T02:14:24.745Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>克隆#  git clone 仓库地址<br>克隆指定分支#   git clone -b 分支名 仓库地址<br>切换到某个分支#  git co 分支名<br>把修改文件添加到本地暂存区#  git add .<br>合并到当前分支#  git merge 分支名<br>提交修改文件#  git commit -m “修改内容”<br>更新#  git pull<br>提交到远程分支#  git push origin 分支名</p><a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>克隆#  git clone 仓库地址<br>克隆指定分支#   git clone -b 分支名 仓库地址<br>切换到某个分支#  git branch 分支名<br>把修改文件添加到本地暂存区#  git add .<br>合并到当前分支#  git merge 分支名<br>提交修改文件#  git commit -m “修改内容”<br>更新#  git pull<br>提交到远程分支#  git push origin 分支名</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h3&gt;&lt;p&gt;克隆#  git clone 仓库地址&lt;br&gt;克隆指定分支#   git clone -b 分支名 仓库地址&lt;br&gt;切换到某个分支#  git co 分支名&lt;br&gt;把修改文件添加到本地暂存区#  git add .&lt;br&gt;合并到当前分支#  git merge 分支名&lt;br&gt;提交修改文件#  git commit -m “修改内容”&lt;br&gt;更新#  git pull&lt;br&gt;提交到远程分支#  git push origin 分支名&lt;/p&gt;
+      &lt;h3 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h3&gt;&lt;p&gt;克隆#  git clone 仓库地址&lt;br&gt;克隆指定分支#   git clone -b 分支名 仓库地址&lt;br&gt;切换到某个分支#  git branch 分支名&lt;br&gt;把修改文件添加到本地暂存区#  git add .&lt;br&gt;合并到当前分支#  git merge 分支名&lt;br&gt;提交修改文件#  git commit -m “修改内容”&lt;br&gt;更新#  git pull&lt;br&gt;提交到远程分支#  git push origin 分支名&lt;/p&gt;
     
     </summary>
     
