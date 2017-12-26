@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/androidBlog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/androidBlog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/androidBlog/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/androidBlog/androidBlog/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/androidBlog/androidBlog/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/androidBlog/androidBlog/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/androidBlog/androidBlog/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android工具," />
+
+
+
+
+
+  <link rel="alternate" href="/androidBlog/atom.xml" title="androidBlog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1、日志工具类1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768import android.util.Log;    /**  * Log统一管理类  *   */  public class">
+<meta name="keywords" content="android工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常用工具栏">
+<meta property="og:url" content="https://chenweijieno1.github.io/androidBlog/2017/12/19/Android常用工具类/index.html">
+<meta property="og:site_name" content="androidBlog">
+<meta property="og:description" content="1、日志工具类1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768import android.util.Log;    /**  * Log统一管理类  *   */  public class">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-22T06:12:39.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android常用工具栏">
+<meta name="twitter:description" content="1、日志工具类1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768import android.util.Log;    /**  * Log统一管理类  *   */  public class">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/androidBlog/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenweijieno1.github.io/androidBlog/2017/12/19/Android常用工具类/"/>
+
+
+
+
+
+  <title>Android常用工具栏 | androidBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/androidBlog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">androidBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/androidBlog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/androidBlog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/androidBlog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/androidBlog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/androidBlog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenweijieno1.github.io/androidBlog/androidBlog/2017/12/19/Android常用工具类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ericchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="androidBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android常用工具栏</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T14:36:00+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/androidBlog/categories/android工具/" itemprop="url" rel="index">
+                    <span itemprop="name">android工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1、日志工具类"><a href="#1、日志工具类" class="headerlink" title="1、日志工具类"></a>1、日志工具类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">import android.util.Log;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * Log统一管理类 </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class LogUtils  </div><div class="line">&#123;  </div><div class="line">  </div><div class="line">    private LogUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化  </div><div class="line">    private static final String TAG = &quot;LogUtil&quot;;  </div><div class="line">  </div><div class="line">    // 下面四个是默认tag的函数  </div><div class="line">    public static void i(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void d(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.d(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void e(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.e(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void v(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.v(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    // 下面是传入自定义tag的函数  </div><div class="line">    public static void i(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void d(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void e(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void v(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2、Toast管理类"><a href="#2、Toast管理类" class="headerlink" title="2、Toast管理类"></a>2、Toast管理类</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">import android.content.Context;  </div><div class="line">import android.widget.Toast;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * Toast统一管理类 </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class ToastUtils  </div><div class="line">&#123;  </div><div class="line">  </div><div class="line">    private ToastUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static boolean isShow = true;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 短时间显示Toast </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     */  </div><div class="line">    public static void showShort(Context context, CharSequence message)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 短时间显示Toast </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     */  </div><div class="line">    public static void showShort(Context context, int message)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 长时间显示Toast </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     */  </div><div class="line">    public static void showLong(Context context, CharSequence message)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, Toast.LENGTH_LONG).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 长时间显示Toast </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     */  </div><div class="line">    public static void showLong(Context context, int message)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, Toast.LENGTH_LONG).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 自定义显示Toast时间 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     * @param duration </div><div class="line">     */  </div><div class="line">    public static void show(Context context, CharSequence message, int duration)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, duration).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 自定义显示Toast时间 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param message </div><div class="line">     * @param duration </div><div class="line">     */  </div><div class="line">    public static void show(Context context, int message, int duration)  </div><div class="line">    &#123;  </div><div class="line">        if (isShow)  </div><div class="line">            Toast.makeText(context, message, duration).show();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、SharedPreferences封装类"><a href="#3、SharedPreferences封装类" class="headerlink" title="3、SharedPreferences封装类"></a>3、SharedPreferences封装类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div></pre></td><td class="code"><pre><div class="line">import java.lang.reflect.InvocationTargetException;  </div><div class="line">import java.lang.reflect.Method;  </div><div class="line">import java.util.Map;  </div><div class="line">  </div><div class="line">import android.content.Context;  </div><div class="line">import android.content.SharedPreferences;  </div><div class="line">  </div><div class="line">public class SPUtils  </div><div class="line">&#123;  </div><div class="line">    /** </div><div class="line">     * 保存在手机里面的文件名 </div><div class="line">     */  </div><div class="line">    public static final String FILE_NAME = &quot;share_data&quot;;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param key </div><div class="line">     * @param object </div><div class="line">     */  </div><div class="line">    public static void put(Context context, String key, Object object)  </div><div class="line">    &#123;  </div><div class="line">  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">        SharedPreferences.Editor editor = sp.edit();  </div><div class="line">  </div><div class="line">        if (object instanceof String)  </div><div class="line">        &#123;  </div><div class="line">            editor.putString(key, (String) object);  </div><div class="line">        &#125; else if (object instanceof Integer)  </div><div class="line">        &#123;  </div><div class="line">            editor.putInt(key, (Integer) object);  </div><div class="line">        &#125; else if (object instanceof Boolean)  </div><div class="line">        &#123;  </div><div class="line">            editor.putBoolean(key, (Boolean) object);  </div><div class="line">        &#125; else if (object instanceof Float)  </div><div class="line">        &#123;  </div><div class="line">            editor.putFloat(key, (Float) object);  </div><div class="line">        &#125; else if (object instanceof Long)  </div><div class="line">        &#123;  </div><div class="line">            editor.putLong(key, (Long) object);  </div><div class="line">        &#125; else  </div><div class="line">        &#123;  </div><div class="line">            editor.putString(key, object.toString());  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        SharedPreferencesCompat.apply(editor);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 得到保存数据的方法，我们根据默认值得到保存的数据的具体类型，然后调用相对于的方法获取值 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param key </div><div class="line">     * @param defaultObject </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static Object get(Context context, String key, Object defaultObject)  </div><div class="line">    &#123;  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">  </div><div class="line">        if (defaultObject instanceof String)  </div><div class="line">        &#123;  </div><div class="line">            return sp.getString(key, (String) defaultObject);  </div><div class="line">        &#125; else if (defaultObject instanceof Integer)  </div><div class="line">        &#123;  </div><div class="line">            return sp.getInt(key, (Integer) defaultObject);  </div><div class="line">        &#125; else if (defaultObject instanceof Boolean)  </div><div class="line">        &#123;  </div><div class="line">            return sp.getBoolean(key, (Boolean) defaultObject);  </div><div class="line">        &#125; else if (defaultObject instanceof Float)  </div><div class="line">        &#123;  </div><div class="line">            return sp.getFloat(key, (Float) defaultObject);  </div><div class="line">        &#125; else if (defaultObject instanceof Long)  </div><div class="line">        &#123;  </div><div class="line">            return sp.getLong(key, (Long) defaultObject);  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        return null;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 移除某个key值已经对应的值 </div><div class="line">     * @param context </div><div class="line">     * @param key </div><div class="line">     */  </div><div class="line">    public static void remove(Context context, String key)  </div><div class="line">    &#123;  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">        SharedPreferences.Editor editor = sp.edit();  </div><div class="line">        editor.remove(key);  </div><div class="line">        SharedPreferencesCompat.apply(editor);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 清除所有数据 </div><div class="line">     * @param context </div><div class="line">     */  </div><div class="line">    public static void clear(Context context)  </div><div class="line">    &#123;  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">        SharedPreferences.Editor editor = sp.edit();  </div><div class="line">        editor.clear();  </div><div class="line">        SharedPreferencesCompat.apply(editor);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 查询某个key是否已经存在 </div><div class="line">     * @param context </div><div class="line">     * @param key </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static boolean contains(Context context, String key)  </div><div class="line">    &#123;  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">        return sp.contains(key);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 返回所有的键值对 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static Map&lt;String, ?&gt; getAll(Context context)  </div><div class="line">    &#123;  </div><div class="line">        SharedPreferences sp = context.getSharedPreferences(FILE_NAME,  </div><div class="line">                Context.MODE_PRIVATE);  </div><div class="line">        return sp.getAll();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 创建一个解决SharedPreferencesCompat.apply方法的一个兼容类 </div><div class="line">     *  </div><div class="line">     * @author zhy </div><div class="line">     *  </div><div class="line">     */  </div><div class="line">    private static class SharedPreferencesCompat  </div><div class="line">    &#123;  </div><div class="line">        private static final Method sApplyMethod = findApplyMethod();  </div><div class="line">  </div><div class="line">        /** </div><div class="line">         * 反射查找apply的方法 </div><div class="line">         *  </div><div class="line">         * @return </div><div class="line">         */  </div><div class="line">        @SuppressWarnings(&#123; &quot;unchecked&quot;, &quot;rawtypes&quot; &#125;)  </div><div class="line">        private static Method findApplyMethod()  </div><div class="line">        &#123;  </div><div class="line">            try  </div><div class="line">            &#123;  </div><div class="line">                Class clz = SharedPreferences.Editor.class;  </div><div class="line">                return clz.getMethod(&quot;apply&quot;);  </div><div class="line">            &#125; catch (NoSuchMethodException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125;  </div><div class="line">  </div><div class="line">            return null;  </div><div class="line">        &#125;  </div><div class="line">  </div><div class="line">        /** </div><div class="line">         * 如果找到则使用apply执行，否则使用commit </div><div class="line">         *  </div><div class="line">         * @param editor </div><div class="line">         */  </div><div class="line">        public static void apply(SharedPreferences.Editor editor)  </div><div class="line">        &#123;  </div><div class="line">            try  </div><div class="line">            &#123;  </div><div class="line">                if (sApplyMethod != null)  </div><div class="line">                &#123;  </div><div class="line">                    sApplyMethod.invoke(editor);  </div><div class="line">                    return;  </div><div class="line">                &#125;  </div><div class="line">            &#125; catch (IllegalArgumentException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125; catch (IllegalAccessException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125; catch (InvocationTargetException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125;  </div><div class="line">            editor.commit();  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意一点，里面所有的commit操作使用了SharedPreferencesCompat.apply进行了替代，目的是尽可能的使用apply代替commit</p>
+<p>首先说下为什么，因为commit方法是同步的，并且我们很多时候的commit操作都是UI线程中，毕竟是IO操作，尽可能异步；</p>
+<p>所以我们使用apply进行替代，apply异步的进行写入；</p>
+<p>但是apply相当于commit来说是new API呢，为了更好的兼容，我们做了适配；</p>
+<h3 id="4、单位转换类"><a href="#4、单位转换类" class="headerlink" title="4、单位转换类"></a>4、单位转换类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">import android.content.Context;  </div><div class="line">import android.util.TypedValue;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * 常用单位转换的辅助类 </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class DensityUtils  </div><div class="line">&#123;  </div><div class="line">    private DensityUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * dp转px </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param val </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static int dp2px(Context context, float dpVal)  </div><div class="line">    &#123;  </div><div class="line">        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,  </div><div class="line">                dpVal, context.getResources().getDisplayMetrics());  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * sp转px </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param val </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static int sp2px(Context context, float spVal)  </div><div class="line">    &#123;  </div><div class="line">        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,  </div><div class="line">                spVal, context.getResources().getDisplayMetrics());  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * px转dp </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @param pxVal </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static float px2dp(Context context, float pxVal)  </div><div class="line">    &#123;  </div><div class="line">        final float scale = context.getResources().getDisplayMetrics().density;  </div><div class="line">        return (pxVal / scale);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * px转sp </div><div class="line">     *  </div><div class="line">     * @param fontScale </div><div class="line">     * @param pxVal </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static float px2sp(Context context, float pxVal)  </div><div class="line">    &#123;  </div><div class="line">        return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5、SD卡相关辅助类"><a href="#5、SD卡相关辅助类" class="headerlink" title="5、SD卡相关辅助类"></a>5、SD卡相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">import java.io.File;  </div><div class="line">  </div><div class="line">import android.os.Environment;  </div><div class="line">import android.os.StatFs;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * SD卡相关的辅助类 </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class SDCardUtils  </div><div class="line">&#123;  </div><div class="line">    private SDCardUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 判断SDCard是否可用 </div><div class="line">     *  </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static boolean isSDCardEnable()  </div><div class="line">    &#123;  </div><div class="line">        return Environment.getExternalStorageState().equals(  </div><div class="line">                Environment.MEDIA_MOUNTED);  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取SD卡路径 </div><div class="line">     *  </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static String getSDCardPath()  </div><div class="line">    &#123;  </div><div class="line">        return Environment.getExternalStorageDirectory().getAbsolutePath()  </div><div class="line">                + File.separator;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取SD卡的剩余容量 单位byte </div><div class="line">     *  </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static long getSDCardAllSize()  </div><div class="line">    &#123;  </div><div class="line">        if (isSDCardEnable())  </div><div class="line">        &#123;  </div><div class="line">            StatFs stat = new StatFs(getSDCardPath());  </div><div class="line">            // 获取空闲的数据块的数量  </div><div class="line">            long availableBlocks = (long) stat.getAvailableBlocks() - 4;  </div><div class="line">            // 获取单个数据块的大小（byte）  </div><div class="line">            long freeBlocks = stat.getAvailableBlocks();  </div><div class="line">            return freeBlocks * availableBlocks;  </div><div class="line">        &#125;  </div><div class="line">        return 0;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取指定路径所在空间的剩余可用容量字节数，单位byte </div><div class="line">     *  </div><div class="line">     * @param filePath </div><div class="line">     * @return 容量字节 SDCard可用空间，内部存储可用空间 </div><div class="line">     */  </div><div class="line">    public static long getFreeBytes(String filePath)  </div><div class="line">    &#123;  </div><div class="line">        // 如果是sd卡的下的路径，则获取sd卡可用容量  </div><div class="line">        if (filePath.startsWith(getSDCardPath()))  </div><div class="line">        &#123;  </div><div class="line">            filePath = getSDCardPath();  </div><div class="line">        &#125; else  </div><div class="line">        &#123;// 如果是内部存储的路径，则获取内存存储的可用容量  </div><div class="line">            filePath = Environment.getDataDirectory().getAbsolutePath();  </div><div class="line">        &#125;  </div><div class="line">        StatFs stat = new StatFs(filePath);  </div><div class="line">        long availableBlocks = (long) stat.getAvailableBlocks() - 4;  </div><div class="line">        return stat.getBlockSize() * availableBlocks;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取系统存储路径 </div><div class="line">     *  </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static String getRootDirectoryPath()  </div><div class="line">    &#123;  </div><div class="line">        return Environment.getRootDirectory().getAbsolutePath();  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6、屏幕相关辅助类"><a href="#6、屏幕相关辅助类" class="headerlink" title="6、屏幕相关辅助类"></a>6、屏幕相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div></pre></td><td class="code"><pre><div class="line">import android.app.Activity;  </div><div class="line">import android.content.Context;  </div><div class="line">import android.graphics.Bitmap;  </div><div class="line">import android.graphics.Rect;  </div><div class="line">import android.util.DisplayMetrics;  </div><div class="line">import android.view.View;  </div><div class="line">import android.view.WindowManager;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * 获得屏幕相关的辅助类 </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class ScreenUtils  </div><div class="line">&#123;  </div><div class="line">    private ScreenUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获得屏幕高度 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static int getScreenWidth(Context context)  </div><div class="line">    &#123;  </div><div class="line">        WindowManager wm = (WindowManager) context  </div><div class="line">                .getSystemService(Context.WINDOW_SERVICE);  </div><div class="line">        DisplayMetrics outMetrics = new DisplayMetrics();  </div><div class="line">        wm.getDefaultDisplay().getMetrics(outMetrics);  </div><div class="line">        return outMetrics.widthPixels;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获得屏幕宽度 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static int getScreenHeight(Context context)  </div><div class="line">    &#123;  </div><div class="line">        WindowManager wm = (WindowManager) context  </div><div class="line">                .getSystemService(Context.WINDOW_SERVICE);  </div><div class="line">        DisplayMetrics outMetrics = new DisplayMetrics();  </div><div class="line">        wm.getDefaultDisplay().getMetrics(outMetrics);  </div><div class="line">        return outMetrics.heightPixels;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获得状态栏的高度 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static int getStatusHeight(Context context)  </div><div class="line">    &#123;  </div><div class="line">  </div><div class="line">        int statusHeight = -1;  </div><div class="line">        try  </div><div class="line">        &#123;  </div><div class="line">            Class&lt;?&gt; clazz = Class.forName(&quot;com.android.internal.R$dimen&quot;);  </div><div class="line">            Object object = clazz.newInstance();  </div><div class="line">            int height = Integer.parseInt(clazz.getField(&quot;status_bar_height&quot;)  </div><div class="line">                    .get(object).toString());  </div><div class="line">            statusHeight = context.getResources().getDimensionPixelSize(height);  </div><div class="line">        &#125; catch (Exception e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        return statusHeight;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取当前屏幕截图，包含状态栏 </div><div class="line">     *  </div><div class="line">     * @param activity </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static Bitmap snapShotWithStatusBar(Activity activity)  </div><div class="line">    &#123;  </div><div class="line">        View view = activity.getWindow().getDecorView();  </div><div class="line">        view.setDrawingCacheEnabled(true);  </div><div class="line">        view.buildDrawingCache();  </div><div class="line">        Bitmap bmp = view.getDrawingCache();  </div><div class="line">        int width = getScreenWidth(activity);  </div><div class="line">        int height = getScreenHeight(activity);  </div><div class="line">        Bitmap bp = null;  </div><div class="line">        bp = Bitmap.createBitmap(bmp, 0, 0, width, height);  </div><div class="line">        view.destroyDrawingCache();  </div><div class="line">        return bp;  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取当前屏幕截图，不包含状态栏 </div><div class="line">     *  </div><div class="line">     * @param activity </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static Bitmap snapShotWithoutStatusBar(Activity activity)  </div><div class="line">    &#123;  </div><div class="line">        View view = activity.getWindow().getDecorView();  </div><div class="line">        view.setDrawingCacheEnabled(true);  </div><div class="line">        view.buildDrawingCache();  </div><div class="line">        Bitmap bmp = view.getDrawingCache();  </div><div class="line">        Rect frame = new Rect();  </div><div class="line">        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);  </div><div class="line">        int statusBarHeight = frame.top;  </div><div class="line">  </div><div class="line">        int width = getScreenWidth(activity);  </div><div class="line">        int height = getScreenHeight(activity);  </div><div class="line">        Bitmap bp = null;  </div><div class="line">        bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height  </div><div class="line">                - statusBarHeight);  </div><div class="line">        view.destroyDrawingCache();  </div><div class="line">        return bp;  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7、App相关辅助类"><a href="#7、App相关辅助类" class="headerlink" title="7、App相关辅助类"></a>7、App相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">import android.content.Context;  </div><div class="line">import android.content.pm.PackageInfo;  </div><div class="line">import android.content.pm.PackageManager;  </div><div class="line">import android.content.pm.PackageManager.NameNotFoundException;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * 跟App相关的辅助类 </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class AppUtils  </div><div class="line">&#123;  </div><div class="line">  </div><div class="line">    private AppUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 获取应用程序名称 </div><div class="line">     */  </div><div class="line">    public static String getAppName(Context context)  </div><div class="line">    &#123;  </div><div class="line">        try  </div><div class="line">        &#123;  </div><div class="line">            PackageManager packageManager = context.getPackageManager();  </div><div class="line">            PackageInfo packageInfo = packageManager.getPackageInfo(  </div><div class="line">                    context.getPackageName(), 0);  </div><div class="line">            int labelRes = packageInfo.applicationInfo.labelRes;  </div><div class="line">            return context.getResources().getString(labelRes);  </div><div class="line">        &#125; catch (NameNotFoundException e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        return null;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * [获取应用程序版本名称信息] </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return 当前应用的版本名称 </div><div class="line">     */  </div><div class="line">    public static String getVersionName(Context context)  </div><div class="line">    &#123;  </div><div class="line">        try  </div><div class="line">        &#123;  </div><div class="line">            PackageManager packageManager = context.getPackageManager();  </div><div class="line">            PackageInfo packageInfo = packageManager.getPackageInfo(  </div><div class="line">                    context.getPackageName(), 0);  </div><div class="line">            return packageInfo.versionName;  </div><div class="line">  </div><div class="line">        &#125; catch (NameNotFoundException e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        return null;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="8、软键盘相关辅助类"><a href="#8、软键盘相关辅助类" class="headerlink" title="8、软键盘相关辅助类"></a>8、软键盘相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">import android.content.Context;  </div><div class="line">import android.view.inputmethod.InputMethodManager;  </div><div class="line">import android.widget.EditText;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * 打开或关闭软键盘 </div><div class="line"> *  </div><div class="line"> * @author zhy </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class KeyBoardUtils  </div><div class="line">&#123;  </div><div class="line">    /** </div><div class="line">     * 打卡软键盘 </div><div class="line">     *  </div><div class="line">     * @param mEditText </div><div class="line">     *            输入框 </div><div class="line">     * @param mContext </div><div class="line">     *            上下文 </div><div class="line">     */  </div><div class="line">    public static void openKeybord(EditText mEditText, Context mContext)  </div><div class="line">    &#123;  </div><div class="line">        InputMethodManager imm = (InputMethodManager) mContext  </div><div class="line">                .getSystemService(Context.INPUT_METHOD_SERVICE);  </div><div class="line">        imm.showSoftInput(mEditText, InputMethodManager.RESULT_SHOWN);  </div><div class="line">        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,  </div><div class="line">                InputMethodManager.HIDE_IMPLICIT_ONLY);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 关闭软键盘 </div><div class="line">     *  </div><div class="line">     * @param mEditText </div><div class="line">     *            输入框 </div><div class="line">     * @param mContext </div><div class="line">     *            上下文 </div><div class="line">     */  </div><div class="line">    public static void closeKeybord(EditText mEditText, Context mContext)  </div><div class="line">    &#123;  </div><div class="line">        InputMethodManager imm = (InputMethodManager) mContext  </div><div class="line">                .getSystemService(Context.INPUT_METHOD_SERVICE);  </div><div class="line">  </div><div class="line">        imm.hideSoftInputFromWindow(mEditText.getWindowToken(), 0);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="9、网络相关辅助类"><a href="#9、网络相关辅助类" class="headerlink" title="9、网络相关辅助类"></a>9、网络相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">import android.app.Activity;  </div><div class="line">import android.content.ComponentName;  </div><div class="line">import android.content.Context;  </div><div class="line">import android.content.Intent;  </div><div class="line">import android.net.ConnectivityManager;  </div><div class="line">import android.net.NetworkInfo;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * 跟网络相关的工具类 </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class NetUtils  </div><div class="line">&#123;  </div><div class="line">    private NetUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 判断网络是否连接 </div><div class="line">     *  </div><div class="line">     * @param context </div><div class="line">     * @return </div><div class="line">     */  </div><div class="line">    public static boolean isConnected(Context context)  </div><div class="line">    &#123;  </div><div class="line">  </div><div class="line">        ConnectivityManager connectivity = (ConnectivityManager) context  </div><div class="line">                .getSystemService(Context.CONNECTIVITY_SERVICE);  </div><div class="line">  </div><div class="line">        if (null != connectivity)  </div><div class="line">        &#123;  </div><div class="line">  </div><div class="line">            NetworkInfo info = connectivity.getActiveNetworkInfo();  </div><div class="line">            if (null != info &amp;&amp; info.isConnected())  </div><div class="line">            &#123;  </div><div class="line">                if (info.getState() == NetworkInfo.State.CONNECTED)  </div><div class="line">                &#123;  </div><div class="line">                    return true;  </div><div class="line">                &#125;  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        return false;  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 判断是否是wifi连接 </div><div class="line">     */  </div><div class="line">    public static boolean isWifi(Context context)  </div><div class="line">    &#123;  </div><div class="line">        ConnectivityManager cm = (ConnectivityManager) context  </div><div class="line">                .getSystemService(Context.CONNECTIVITY_SERVICE);  </div><div class="line">  </div><div class="line">        if (cm == null)  </div><div class="line">            return false;  </div><div class="line">        return cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 打开网络设置界面 </div><div class="line">     */  </div><div class="line">    public static void openSetting(Activity activity)  </div><div class="line">    &#123;  </div><div class="line">        Intent intent = new Intent(&quot;/&quot;);  </div><div class="line">        ComponentName cm = new ComponentName(&quot;com.android.settings&quot;,  </div><div class="line">                &quot;com.android.settings.WirelessSettings&quot;);  </div><div class="line">        intent.setComponent(cm);  </div><div class="line">        intent.setAction(&quot;android.intent.action.VIEW&quot;);  </div><div class="line">        activity.startActivityForResult(intent, 0);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="10、Http相关辅助类"><a href="#10、Http相关辅助类" class="headerlink" title="10、Http相关辅助类"></a>10、Http相关辅助类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div></pre></td><td class="code"><pre><div class="line">import java.io.BufferedReader;  </div><div class="line">import java.io.ByteArrayOutputStream;  </div><div class="line">import java.io.IOException;  </div><div class="line">import java.io.InputStream;  </div><div class="line">import java.io.InputStreamReader;  </div><div class="line">import java.io.PrintWriter;  </div><div class="line">import java.net.HttpURLConnection;  </div><div class="line">import java.net.URL;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * Http请求的工具类 </div><div class="line"> *  </div><div class="line"> * @author zhy </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class HttpUtils  </div><div class="line">&#123;  </div><div class="line">  </div><div class="line">    private static final int TIMEOUT_IN_MILLIONS = 5000;  </div><div class="line">  </div><div class="line">    public interface CallBack  </div><div class="line">    &#123;  </div><div class="line">        void onRequestComplete(String result);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 异步的Get请求 </div><div class="line">     *  </div><div class="line">     * @param urlStr </div><div class="line">     * @param callBack </div><div class="line">     */  </div><div class="line">    public static void doGetAsyn(final String urlStr, final CallBack callBack)  </div><div class="line">    &#123;  </div><div class="line">        new Thread()  </div><div class="line">        &#123;  </div><div class="line">            public void run()  </div><div class="line">            &#123;  </div><div class="line">                try  </div><div class="line">                &#123;  </div><div class="line">                    String result = doGet(urlStr);  </div><div class="line">                    if (callBack != null)  </div><div class="line">                    &#123;  </div><div class="line">                        callBack.onRequestComplete(result);  </div><div class="line">                    &#125;  </div><div class="line">                &#125; catch (Exception e)  </div><div class="line">                &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">  </div><div class="line">            &#125;;  </div><div class="line">        &#125;.start();  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * 异步的Post请求 </div><div class="line">     * @param urlStr </div><div class="line">     * @param params </div><div class="line">     * @param callBack </div><div class="line">     * @throws Exception </div><div class="line">     */  </div><div class="line">    public static void doPostAsyn(final String urlStr, final String params,  </div><div class="line">            final CallBack callBack) throws Exception  </div><div class="line">    &#123;  </div><div class="line">        new Thread()  </div><div class="line">        &#123;  </div><div class="line">            public void run()  </div><div class="line">            &#123;  </div><div class="line">                try  </div><div class="line">                &#123;  </div><div class="line">                    String result = doPost(urlStr, params);  </div><div class="line">                    if (callBack != null)  </div><div class="line">                    &#123;  </div><div class="line">                        callBack.onRequestComplete(result);  </div><div class="line">                    &#125;  </div><div class="line">                &#125; catch (Exception e)  </div><div class="line">                &#123;  </div><div class="line">                    e.printStackTrace();  </div><div class="line">                &#125;  </div><div class="line">  </div><div class="line">            &#125;;  </div><div class="line">        &#125;.start();  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /** </div><div class="line">     * Get请求，获得返回数据 </div><div class="line">     *  </div><div class="line">     * @param urlStr </div><div class="line">     * @return </div><div class="line">     * @throws Exception </div><div class="line">     */  </div><div class="line">    public static String doGet(String urlStr)   </div><div class="line">    &#123;  </div><div class="line">        URL url = null;  </div><div class="line">        HttpURLConnection conn = null;  </div><div class="line">        InputStream is = null;  </div><div class="line">        ByteArrayOutputStream baos = null;  </div><div class="line">        try  </div><div class="line">        &#123;  </div><div class="line">            url = new URL(urlStr);  </div><div class="line">            conn = (HttpURLConnection) url.openConnection();  </div><div class="line">            conn.setReadTimeout(TIMEOUT_IN_MILLIONS);  </div><div class="line">            conn.setConnectTimeout(TIMEOUT_IN_MILLIONS);  </div><div class="line">            conn.setRequestMethod(&quot;GET&quot;);  </div><div class="line">            conn.setRequestProperty(&quot;accept&quot;, &quot;*/*&quot;);  </div><div class="line">            conn.setRequestProperty(&quot;connection&quot;, &quot;Keep-Alive&quot;);  </div><div class="line">            if (conn.getResponseCode() == 200)  </div><div class="line">            &#123;  </div><div class="line">                is = conn.getInputStream();  </div><div class="line">                baos = new ByteArrayOutputStream();  </div><div class="line">                int len = -1;  </div><div class="line">                byte[] buf = new byte[128];  </div><div class="line">  </div><div class="line">                while ((len = is.read(buf)) != -1)  </div><div class="line">                &#123;  </div><div class="line">                    baos.write(buf, 0, len);  </div><div class="line">                &#125;  </div><div class="line">                baos.flush();  </div><div class="line">                return baos.toString();  </div><div class="line">            &#125; else  </div><div class="line">            &#123;  </div><div class="line">                throw new RuntimeException(&quot; responseCode is not 200 ... &quot;);  </div><div class="line">            &#125;  </div><div class="line">  </div><div class="line">        &#125; catch (Exception e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125; finally  </div><div class="line">        &#123;  </div><div class="line">            try  </div><div class="line">            &#123;  </div><div class="line">                if (is != null)  </div><div class="line">                    is.close();  </div><div class="line">            &#125; catch (IOException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125;  </div><div class="line">            try  </div><div class="line">            &#123;  </div><div class="line">                if (baos != null)  </div><div class="line">                    baos.close();  </div><div class="line">            &#125; catch (IOException e)  </div><div class="line">            &#123;  </div><div class="line">            &#125;  </div><div class="line">            conn.disconnect();  </div><div class="line">        &#125;  </div><div class="line">          </div><div class="line">        return null ;  </div><div class="line">  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    /**  </div><div class="line">     * 向指定 URL 发送POST方法的请求  </div><div class="line">     *   </div><div class="line">     * @param url  </div><div class="line">     *            发送请求的 URL  </div><div class="line">     * @param param  </div><div class="line">     *            请求参数，请求参数应该是 name1=value1&amp;name2=value2 的形式。  </div><div class="line">     * @return 所代表远程资源的响应结果  </div><div class="line">     * @throws Exception  </div><div class="line">     */  </div><div class="line">    public static String doPost(String url, String param)   </div><div class="line">    &#123;  </div><div class="line">        PrintWriter out = null;  </div><div class="line">        BufferedReader in = null;  </div><div class="line">        String result = &quot;&quot;;  </div><div class="line">        try  </div><div class="line">        &#123;  </div><div class="line">            URL realUrl = new URL(url);  </div><div class="line">            // 打开和URL之间的连接  </div><div class="line">            HttpURLConnection conn = (HttpURLConnection) realUrl  </div><div class="line">                    .openConnection();  </div><div class="line">            // 设置通用的请求属性  </div><div class="line">            conn.setRequestProperty(&quot;accept&quot;, &quot;*/*&quot;);  </div><div class="line">            conn.setRequestProperty(&quot;connection&quot;, &quot;Keep-Alive&quot;);  </div><div class="line">            conn.setRequestMethod(&quot;POST&quot;);  </div><div class="line">            conn.setRequestProperty(&quot;Content-Type&quot;,  </div><div class="line">                    &quot;application/x-www-form-urlencoded&quot;);  </div><div class="line">            conn.setRequestProperty(&quot;charset&quot;, &quot;utf-8&quot;);  </div><div class="line">            conn.setUseCaches(false);  </div><div class="line">            // 发送POST请求必须设置如下两行  </div><div class="line">            conn.setDoOutput(true);  </div><div class="line">            conn.setDoInput(true);  </div><div class="line">            conn.setReadTimeout(TIMEOUT_IN_MILLIONS);  </div><div class="line">            conn.setConnectTimeout(TIMEOUT_IN_MILLIONS);  </div><div class="line">  </div><div class="line">            if (param != null &amp;&amp; !param.trim().equals(&quot;&quot;))  </div><div class="line">            &#123;  </div><div class="line">                // 获取URLConnection对象对应的输出流  </div><div class="line">                out = new PrintWriter(conn.getOutputStream());  </div><div class="line">                // 发送请求参数  </div><div class="line">                out.print(param);  </div><div class="line">                // flush输出流的缓冲  </div><div class="line">                out.flush();  </div><div class="line">            &#125;  </div><div class="line">            // 定义BufferedReader输入流来读取URL的响应  </div><div class="line">            in = new BufferedReader(  </div><div class="line">                    new InputStreamReader(conn.getInputStream()));  </div><div class="line">            String line;  </div><div class="line">            while ((line = in.readLine()) != null)  </div><div class="line">            &#123;  </div><div class="line">                result += line;  </div><div class="line">            &#125;  </div><div class="line">        &#125; catch (Exception e)  </div><div class="line">        &#123;  </div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        // 使用finally块来关闭输出流、输入流  </div><div class="line">        finally  </div><div class="line">        &#123;  </div><div class="line">            try  </div><div class="line">            &#123;  </div><div class="line">                if (out != null)  </div><div class="line">                &#123;  </div><div class="line">                    out.close();  </div><div class="line">                &#125;  </div><div class="line">                if (in != null)  </div><div class="line">                &#123;  </div><div class="line">                    in.close();  </div><div class="line">                &#125;  </div><div class="line">            &#125; catch (IOException ex)  </div><div class="line">            &#123;  </div><div class="line">                ex.printStackTrace();  </div><div class="line">            &#125;  </div><div class="line">        &#125;  </div><div class="line">        return result;  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="11、对话框工具类"><a href="#11、对话框工具类" class="headerlink" title="11、对话框工具类"></a>11、对话框工具类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> *</div><div class="line"> * 使用观察者模式来实现确定结果回调</div><div class="line"> *</div><div class="line"> * 调用方式：</div><div class="line"> * AlertDialogUtil dialogUtil = new AlertDialogUtil(context);</div><div class="line"> * dialogUtil.showDialog(&quot;确定删除已上传的图片？&quot;);</div><div class="line"> * dialogUtil.setDialogPositiveButtonListener(new AlertDialogUtil.DialogPositiveButtonListener() &#123;</div><div class="line"> *</div><div class="line"> *      @Override</div><div class="line"> *     public void setDialogPositiveButtonListener() &#123;</div><div class="line"> *</div><div class="line"> *    &#125;</div><div class="line"> * &#125;);</div><div class="line"></div><div class="line"> */</div><div class="line">public class AlertDialogUtil &#123;</div><div class="line">    public Context context;</div><div class="line">    private DialogPositiveButtonListener listener;</div><div class="line"></div><div class="line">    public AlertDialogUtil(Context context) &#123;</div><div class="line">        this.context = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void showDialog(String message) &#123;</div><div class="line">        AlertDialog.Builder dialog = new AlertDialog.Builder(context);</div><div class="line">        dialog.setMessage(message);</div><div class="line">        dialog.setCancelable(false);//点击框外取消</div><div class="line">        dialog.setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</div><div class="line">            @Override</div><div class="line">            public void onClick(DialogInterface dialogInterface, int i) &#123;</div><div class="line">                if (listener != null) &#123;</div><div class="line">                    listener.setDialogPositiveButtonListener();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;);</div><div class="line">        dialog.setNegativeButton(&quot;取消&quot;, null);</div><div class="line">        dialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setDialogPositiveButtonListener(DialogPositiveButtonListener listener) &#123;</div><div class="line">        this.listener = listener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public interface DialogPositiveButtonListener &#123;</div><div class="line">        void setDialogPositiveButtonListener();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="12、文件相关"><a href="#12、文件相关" class="headerlink" title="12、文件相关"></a>12、文件相关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div></pre></td><td class="code"><pre><div class="line">public class FileUtils &#123;</div><div class="line"></div><div class="line">    public static String SDPATH = Environment.getExternalStorageDirectory() + &quot;/formats/&quot;;// 获取文件夹</div><div class="line">    // 保存图片</div><div class="line"></div><div class="line">    public static boolean saveBitmap(Bitmap mBitmap, String path, String imgName) &#123;</div><div class="line">        String sdStatus = Environment.getExternalStorageState();</div><div class="line">        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) &#123; // 检测sd是否可用</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        FileOutputStream b = null;</div><div class="line">        File file = new File(path);</div><div class="line">        file.mkdirs();// 创建文件夹</div><div class="line">        String fileName = path + imgName;</div><div class="line">//        delFile(path, imgName);//删除本地旧图</div><div class="line">        try &#123;</div><div class="line">            b = new FileOutputStream(fileName);</div><div class="line">            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件</div><div class="line">        &#125; catch (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; finally &#123;</div><div class="line">            try &#123;</div><div class="line">                    b.flush();</div><div class="line">                    b.close();</div><div class="line"></div><div class="line">            &#125; catch (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static File createSDDir(String dirName) throws IOException &#123;</div><div class="line">        File dir = new File(SDPATH + dirName);</div><div class="line">        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</div><div class="line"></div><div class="line">            System.out.println(&quot;createSDDir:&quot; + dir.getAbsolutePath());</div><div class="line">            System.out.println(&quot;createSDDir:&quot; + dir.mkdir());</div><div class="line">        &#125;</div><div class="line">        return dir;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static boolean isFileExist(String fileName) &#123;</div><div class="line">        File file = new File(SDPATH + fileName);</div><div class="line">        file.isFile();</div><div class="line">        return file.exists();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 删除文件</div><div class="line">    public static void delFile(String path, String fileName) &#123;</div><div class="line">        File file = new File(path + fileName);</div><div class="line">        if (file.isFile()) &#123;</div><div class="line">            file.delete();</div><div class="line">        &#125;</div><div class="line">        file.exists();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 删除文件夹和文件夹里面的文件</div><div class="line">    public static void deleteDir() &#123;</div><div class="line">        File dir = new File(SDPATH);</div><div class="line">        if (dir == null || !dir.exists() || !dir.isDirectory())</div><div class="line">            return;</div><div class="line"></div><div class="line">        for (File file : dir.listFiles()) &#123;</div><div class="line">            if (file.isFile())</div><div class="line">                file.delete(); // 删除所有文件</div><div class="line">            else if (file.isDirectory())</div><div class="line">                deleteDir(); // 递规的方式删除文件夹</div><div class="line">        &#125;</div><div class="line">        dir.delete();// 删除目录本身</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static boolean fileIsExists(String path) &#123;</div><div class="line">        try &#123;</div><div class="line">            File f = new File(path);</div><div class="line">            if (!f.exists()) &#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line"></div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="13、时间戳相关"><a href="#13、时间戳相关" class="headerlink" title="13、时间戳相关"></a>13、时间戳相关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line">public class DateUtils &#123;</div><div class="line"></div><div class="line">    private static SimpleDateFormat sf;</div><div class="line">    private static SimpleDateFormat sdf;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取系统时间 格式为：&quot;yyyy/MM/dd &quot;</div><div class="line">     **/</div><div class="line">    public static String getCurrentDate() &#123;</div><div class="line">        Date d = new Date();</div><div class="line">        sf = new SimpleDateFormat(&quot;yyyy年MM月dd日&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取系统时间 格式为：&quot;yyyy &quot;</div><div class="line">     **/</div><div class="line">    public static String getCurrentYear() &#123;</div><div class="line">        Date d = new Date();</div><div class="line">        sf = new SimpleDateFormat(&quot;yyyy&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取系统时间 格式为：&quot;MM&quot;</div><div class="line">     **/</div><div class="line">    public static String getCurrentMonth() &#123;</div><div class="line">        Date d = new Date();</div><div class="line">        sf = new SimpleDateFormat(&quot;MM&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取系统时间 格式为：&quot;dd&quot;</div><div class="line">     **/</div><div class="line">    public static String getCurrentDay() &#123;</div><div class="line">        Date d = new Date();</div><div class="line">        sf = new SimpleDateFormat(&quot;dd&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取当前时间戳</div><div class="line">     *</div><div class="line">     * @return</div><div class="line">     */</div><div class="line">    public static long getCurrentTime() &#123;</div><div class="line">        long d = new Date().getTime() / 1000;</div><div class="line">        return d;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 时间戳转换成字符窜</div><div class="line">     */</div><div class="line">    public static String getDateToString(long time) &#123;</div><div class="line">        Date d = new Date(time * 1000);</div><div class="line">        sf = new SimpleDateFormat(&quot;yyyy年MM月dd日&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 时间戳中获取年</div><div class="line">     */</div><div class="line">    public static String getYearFromTime(long time) &#123;</div><div class="line">        Date d = new Date(time * 1000);</div><div class="line">        sf = new SimpleDateFormat(&quot;yyyy&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 时间戳中获取月</div><div class="line">     */</div><div class="line">    public static String getMonthFromTime(long time) &#123;</div><div class="line">        Date d = new Date(time * 1000);</div><div class="line">        sf = new SimpleDateFormat(&quot;MM&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 时间戳中获取日</div><div class="line">     */</div><div class="line">    public static String getDayFromTime(long time) &#123;</div><div class="line">        Date d = new Date(time * 1000);</div><div class="line">        sf = new SimpleDateFormat(&quot;dd&quot;);</div><div class="line">        return sf.format(d);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 将字符串转为时间戳</div><div class="line">     */</div><div class="line">    public static long getStringToDate(String time) &#123;</div><div class="line">        sdf = new SimpleDateFormat(&quot;yyyy年MM月dd日&quot;);</div><div class="line">        Date date = new Date();</div><div class="line">        try &#123;</div><div class="line">            date = sdf.parse(time);</div><div class="line">        &#125; catch (ParseException e) &#123;</div><div class="line">            // TODO Auto-generated catch block</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        return date.getTime();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="14、比较常用的正则表达式验证"><a href="#14、比较常用的正则表达式验证" class="headerlink" title="14、比较常用的正则表达式验证"></a>14、比较常用的正则表达式验证</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div></pre></td><td class="code"><pre><div class="line">public class RegularUtils &#123;</div><div class="line"></div><div class="line">    private RegularUtils() &#123;</div><div class="line">        throw new UnsupportedOperationException(&quot;u can&apos;t fuck me...&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 验证手机号（简单）</div><div class="line">     */</div><div class="line">    private static final String REGEX_MOBILE_SIMPLE = &quot;^[1]\\d&#123;10&#125;$&quot;;</div><div class="line">    /**</div><div class="line">     * 验证手机号（精确）</div><div class="line">     * &lt;p&gt;</div><div class="line">     * &lt;p&gt;移动：134(0-8)、135、136、137、138、139、147、150、151、152、157、158、159、178、182、183、184、187、188</div><div class="line">     * &lt;p&gt;联通：130、131、132、145、155、156、175、176、185、186</div><div class="line">     * &lt;p&gt;电信：133、153、173、177、180、181、189</div><div class="line">     * &lt;p&gt;全球星：1349</div><div class="line">     * &lt;p&gt;虚拟运营商：170</div><div class="line">     */</div><div class="line">    private static final String REGEX_MOBILE_EXACT = &quot;^((13[0-9])|(14[5,7])|(15[0-3,5-8])|(17[0,3,5-8])|(18[0-9])|(147))\\d&#123;8&#125;$&quot;;</div><div class="line">    /**</div><div class="line">     * 验证座机号,正确格式：xxx/xxxx-xxxxxxx/xxxxxxxx/</div><div class="line">     */</div><div class="line">    private static final String REGEX_TEL = &quot;^0\\d&#123;2,3&#125;[- ]?\\d&#123;7,8&#125;&quot;;</div><div class="line">    /**</div><div class="line">     * 验证邮箱</div><div class="line">     */</div><div class="line">    private static final String REGEX_EMAIL = &quot;^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$&quot;;</div><div class="line">    /**</div><div class="line">     * 验证url</div><div class="line">     */</div><div class="line">    private static final String REGEX_URL = &quot;http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&amp;=]*)?&quot;;</div><div class="line">    /**</div><div class="line">     * 验证汉字</div><div class="line">     */</div><div class="line">    private static final String REGEX_CHZ = &quot;^[\\u4e00-\\u9fa5]+$&quot;;</div><div class="line">    /**</div><div class="line">     * 验证用户名,取值范围为a-z,A-Z,0-9,&quot;_&quot;,汉字，不能以&quot;_&quot;结尾,用户名必须是6-20位</div><div class="line">     */</div><div class="line">    private static final String REGEX_USERNAME = &quot;^[\\w\\u4e00-\\u9fa5]&#123;6,20&#125;(?&lt;!_)$&quot;;</div><div class="line">    /**</div><div class="line">     * 验证IP地址</div><div class="line">     */</div><div class="line">    private static final String REGEX_IP = &quot;((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.)&#123;3&#125;(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)&quot;;</div><div class="line"></div><div class="line">    //If u want more please visit http://toutiao.com/i6231678548520731137/</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合手机号（简单）格式</div><div class="line">     */</div><div class="line">    public static boolean isMobileSimple(String string) &#123;</div><div class="line">        return isMatch(REGEX_MOBILE_SIMPLE, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合手机号（精确）格式</div><div class="line">     */</div><div class="line">    public static boolean isMobileExact(String string) &#123;</div><div class="line">        return isMatch(REGEX_MOBILE_EXACT, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合座机号码格式</div><div class="line">     */</div><div class="line">    public static boolean isTel(String string) &#123;</div><div class="line">        return isMatch(REGEX_TEL, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合邮箱格式</div><div class="line">     */</div><div class="line">    public static boolean isEmail(String string) &#123;</div><div class="line">        return isMatch(REGEX_EMAIL, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合网址格式</div><div class="line">     */</div><div class="line">    public static boolean isURL(String string) &#123;</div><div class="line">        return isMatch(REGEX_URL, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合汉字</div><div class="line">     */</div><div class="line">    public static boolean isChz(String string) &#123;</div><div class="line">        return isMatch(REGEX_CHZ, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param string 待验证文本</div><div class="line">     * @return 是否符合用户名</div><div class="line">     */</div><div class="line">    public static boolean isUsername(String string) &#123;</div><div class="line">        return isMatch(REGEX_USERNAME, string);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * @param regex  正则表达式字符串</div><div class="line">     * @param string 要匹配的字符串</div><div class="line">     * @return 如果str 符合 regex的正则表达式格式,返回true, 否则返回 false;</div><div class="line">     */</div><div class="line">    public static boolean isMatch(String regex, String string) &#123;</div><div class="line">        return !TextUtils.isEmpty(string) &amp;&amp; Pattern.matches(regex, string);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/androidBlog/tags/android工具/" rel="tag"># android工具</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/androidBlog/2017/12/19/Android界面性能调优手册/" rel="next" title="Android界面性能调优手册">
+                <i class="fa fa-chevron-left"></i> Android界面性能调优手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/androidBlog/2017/12/21/ViewPager使用详解/" rel="prev" title="ViewPager使用详解">
+                ViewPager使用详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/androidBlog/images/avatar.jpg"
+                alt="Ericchen" />
+            
+              <p class="site-author-name" itemprop="name">Ericchen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/androidBlog/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/androidBlog/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/androidBlog/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/androidBlog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/chenweijieNo1" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、日志工具类"><span class="nav-number">1.</span> <span class="nav-text">1、日志工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Toast管理类"><span class="nav-number">2.</span> <span class="nav-text">2、Toast管理类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、SharedPreferences封装类"><span class="nav-number">3.</span> <span class="nav-text">3、SharedPreferences封装类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、单位转换类"><span class="nav-number">4.</span> <span class="nav-text">4、单位转换类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、SD卡相关辅助类"><span class="nav-number">5.</span> <span class="nav-text">5、SD卡相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、屏幕相关辅助类"><span class="nav-number">6.</span> <span class="nav-text">6、屏幕相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、App相关辅助类"><span class="nav-number">7.</span> <span class="nav-text">7、App相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、软键盘相关辅助类"><span class="nav-number">8.</span> <span class="nav-text">8、软键盘相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、网络相关辅助类"><span class="nav-number">9.</span> <span class="nav-text">9、网络相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、Http相关辅助类"><span class="nav-number">10.</span> <span class="nav-text">10、Http相关辅助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、对话框工具类"><span class="nav-number">11.</span> <span class="nav-text">11、对话框工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、文件相关"><span class="nav-number">12.</span> <span class="nav-text">12、文件相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、时间戳相关"><span class="nav-number">13.</span> <span class="nav-text">13、时间戳相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14、比较常用的正则表达式验证"><span class="nav-number">14.</span> <span class="nav-text">14、比较常用的正则表达式验证</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ericchen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/androidBlog/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/androidBlog/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/androidBlog/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/androidBlog/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

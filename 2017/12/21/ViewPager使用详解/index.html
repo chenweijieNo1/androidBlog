@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/androidBlog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/androidBlog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/androidBlog/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/androidBlog/androidBlog/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/androidBlog/androidBlog/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/androidBlog/androidBlog/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/androidBlog/androidBlog/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android控件使用," />
+
+
+
+
+
+  <link rel="alternate" href="/androidBlog/atom.xml" title="androidBlog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言在开发中ViewPager是不可或缺的控件，引导页、轮播图、卡片画廊等效果大多数是用ViewPager来实现，该文章主要是梳理下ViewPager的用法。主要包括以下内容：  ViewPager的简介与作用 ViewPager的适配器 自定义ViewPager的切换效果 ViewPager的基础使用 ViewPager结合第三方库实现小圆点指示器效果 ViewPager结合design库实现t">
+<meta name="keywords" content="android控件使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ViewPager使用详解">
+<meta property="og:url" content="https://chenweijieno1.github.io/androidBlog/2017/12/21/ViewPager使用详解/index.html">
+<meta property="og:site_name" content="androidBlog">
+<meta property="og:description" content="前言在开发中ViewPager是不可或缺的控件，引导页、轮播图、卡片画廊等效果大多数是用ViewPager来实现，该文章主要是梳理下ViewPager的用法。主要包括以下内容：  ViewPager的简介与作用 ViewPager的适配器 自定义ViewPager的切换效果 ViewPager的基础使用 ViewPager结合第三方库实现小圆点指示器效果 ViewPager结合design库实现t">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-26T07:59:18.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ViewPager使用详解">
+<meta name="twitter:description" content="前言在开发中ViewPager是不可或缺的控件，引导页、轮播图、卡片画廊等效果大多数是用ViewPager来实现，该文章主要是梳理下ViewPager的用法。主要包括以下内容：  ViewPager的简介与作用 ViewPager的适配器 自定义ViewPager的切换效果 ViewPager的基础使用 ViewPager结合第三方库实现小圆点指示器效果 ViewPager结合design库实现t">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/androidBlog/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenweijieno1.github.io/androidBlog/2017/12/21/ViewPager使用详解/"/>
+
+
+
+
+
+  <title>ViewPager使用详解 | androidBlog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/androidBlog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">androidBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/androidBlog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/androidBlog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/androidBlog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/androidBlog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/androidBlog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenweijieno1.github.io/androidBlog/androidBlog/2017/12/21/ViewPager使用详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ericchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="androidBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ViewPager使用详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T14:11:00+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/androidBlog/categories/android控件使用/" itemprop="url" rel="index">
+                    <span itemprop="name">android控件使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在开发中ViewPager是不可或缺的控件，引导页、轮播图、卡片画廊等效果大多数是用ViewPager来实现，该文章主要是梳理下ViewPager的用法。<br>主要包括以下内容：</p>
+<ul>
+<li>ViewPager的简介与作用</li>
+<li>ViewPager的适配器</li>
+<li>自定义ViewPager的切换效果</li>
+<li>ViewPager的基础使用</li>
+<li>ViewPager结合第三方库实现小圆点指示器效果</li>
+<li>ViewPager结合design库实现tab切换</li>
+<li>基于ViewPager实现广告轮播控件</li>
+</ul>
+<h4 id="1、ViewPager的简介与作用"><a href="#1、ViewPager的简介与作用" class="headerlink" title="1、ViewPager的简介与作用"></a>1、ViewPager的简介与作用</h4><p>ViewPager是android扩展包v4包中的类，继承自ViewGroup，它是一个容器类，可以添加其他的view，实现多个view左右切换、滑动，这个控件大家使用比较多，也比较熟悉了，下面说下常用的几个方法：</p>
+<ul>
+<li>setAdapter(PagerAdapter adapter) 设置适配器</li>
+<li>setOffscreenPageLimit(int limit) 设置缓存的页面个数，默认是1个</li>
+<li>setCurrentItem(int item) 跳转到某个页面</li>
+<li>setOnPageChangeListener(…) 设置页面滑动时的监听器</li>
+<li>setPageTransformer(…) 设置页面切换时的动画效果</li>
+<li>setPageMargin(int margin) 设置不同页面之间的间隔</li>
+</ul>
+<h3 id="2、ViewPager的适配器"><a href="#2、ViewPager的适配器" class="headerlink" title="2、ViewPager的适配器"></a>2、ViewPager的适配器</h3><p>ViewPager需要设置PagerAdapter来完成页面和数据的绑定，这个PagerAdapter是个基类，我们经常使用它的两个子类：FragmentPagerAdapter和FragmentStatePagerAdapter，先说说它们之间的使用区别吧。<br><a id="more"></a><br>PagerAdapter是个抽象的适配器，如果继承自该类，至少需要实现 instantiateItem(), destroyItem(), getCount() 以及 isViewFromObject()。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class AdapterViewpager extends PagerAdapter &#123;</div><div class="line">    private List&lt;View&gt; mViewList;</div><div class="line"></div><div class="line">    public AdapterViewpager(List&lt;View&gt; mViewList) &#123;</div><div class="line">        this.mViewList = mViewList;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getCount() &#123;//必须实现 数据个数</div><div class="line">        return mViewList.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public boolean isViewFromObject(View view, Object object) &#123;//必须实现 这个方法用于判断是否由对象生成界面</div><div class="line">        return view == object;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Object instantiateItem(ViewGroup container, int position) &#123;//必须实现，实例化 要显示的页面或需要缓存的页面，进行布局的初始化</div><div class="line">        container.addView(mViewList.get(position));</div><div class="line">        return mViewList.get(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void destroyItem(ViewGroup container, int position, Object object) &#123;//必须实现，销毁</div><div class="line">        container.removeView(mViewList.get(position));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>FragmentPagerAdapter和FragmentStatePagerAdapter更专注于每一项是fragment的情况，FragmentPagerAdpater将每一个页面表示为一个fragment，并且每一个fragment都将会保存到FragmentManger当中，当用户没可能再次回到页面的时候，FragmentManager才会将这个fragment销毁，对于不再需要的fragment，选择调用onDetach()方法，仅销毁视图，但不会销毁fragment实例；FragmentStatePagerAdapter会销毁不再需要的fragment，当当前事务提交以后，会彻底的将fragment从当前activity的FragmentManger中移除，销毁时会将其onSaveInstance(Bundle outState)中Bundle保存下来，当用户切换回来，可以通过该bundle恢复生成新的fragment.<br>总的来说，FragmentStatePagerAdapter更省内存，但花时间，一般情况下，如果只有3、4个tab，可以选择FragmentPagerAdapter；如果展示数量特别多的条目，可以考虑FragmentStatePagerAdapter.</p>
+<p>两者的实现方式一样，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">public class AdapterFragment extends FragmentPagerAdapter &#123;</div><div class="line">    private List&lt;Fragment&gt; mFragments;</div><div class="line"></div><div class="line">    public AdapterFragment(FragmentManager fm, List&lt;Fragment&gt; mFragments) &#123;</div><div class="line">        super(fm);</div><div class="line">        this.mFragments = mFragments;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Fragment getItem(int position) &#123;//必须实现</div><div class="line">        return mFragments.get(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getCount() &#123;//必须实现</div><div class="line">        return mFragments.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public CharSequence getPageTitle(int position) &#123;//选择性实现</div><div class="line">        return mFragments.get(position).getClass().getSimpleName();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、自定义ViewPager的切换效果"><a href="#3、自定义ViewPager的切换效果" class="headerlink" title="3、自定义ViewPager的切换效果"></a>3、自定义ViewPager的切换效果</h3><p>官方提供了一个内部接口ViewPager.PageTransformer来供我们实现自定义切换动效，这个接口只提供一个方法：public void transformPage(View view,float position)</p>
+<p>transformPage有两个参数，一个是view，当前要设置动效的页面，这个页面不单单是当前显示的页面，即将滑出的页面，即将滑入的页面，已经隐藏的页面，但如何分辨View指哪个页面呢？这就需要第二个参数position来辨别。</p>
+<p>从doc注释来看，当前选中的item的position为0，被选中item的前一个为-1，后一个为1，这前提是没有设置pageMargin，如果设置了pageMargin，前后item的position需要分别加上或减去（前减后加）一个偏移量（pageMargin / pageWidth）</p>
+<p>滑动界面时postion是动态变化的，假设有三个页面view1，view2，view3从左至右在viewPager中显示：</p>
+<ul>
+<li><p>往左滑动时：view1，view2，view3的position都是不断变小的。<br>view1的position: 0 → -1 → 负无穷大<br>view2的position: 1 → 0 → -1<br>view3的position: 1 → 0</p>
+</li>
+<li><p>往右滑动时：view1，view2，view3的position都是不断变大的。<br>view1的position: -1 → 0<br>view2的position: -1 → 0 → 1<br>view3的position: 0 → 1→ 正无穷大</p>
+</li>
+</ul>
+<p>当position是正负无穷大时view就离开屏幕视野了。因此最核心的控制逻辑是在[-1,0]和(0,1]这两个区间，通过设置透明度，平移，旋转，缩放等动画组合可以实现各式各样的页面变化效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">public class ZoomOutPageTransformer implements ViewPager.PageTransformer &#123;</div><div class="line">  private static final float MIN_SCALE = 0.85f;</div><div class="line">  private static final float MIN_ALPHA = 0.5f;</div><div class="line"></div><div class="line">  @SuppressLint(&quot;NewApi&quot;)</div><div class="line">  public void transformPage(View view, float position) &#123;</div><div class="line">      int pageWidth = view.getWidth();</div><div class="line">      int pageHeight = view.getHeight();</div><div class="line"></div><div class="line">      Log.e(&quot;TAG&quot;, view + &quot; , &quot; + position + &quot;&quot;);</div><div class="line"></div><div class="line">      if (position &lt; -1) &#123; // [-Infinity,-1)</div><div class="line">          // This page is way off-screen to the left.</div><div class="line">          view.setAlpha(0);</div><div class="line"></div><div class="line">      &#125; else if (position &lt;= 1) </div><div class="line">      &#123; // [-1,1]</div><div class="line">          // Modify the default slide transition to shrink the page as well</div><div class="line">          float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));</div><div class="line">          float vertMargin = pageHeight * (1 - scaleFactor) / 2;</div><div class="line">          float horzMargin = pageWidth * (1 - scaleFactor) / 2;</div><div class="line">          if (position &lt; 0) &#123;</div><div class="line">              view.setTranslationX(horzMargin - vertMargin / 2);</div><div class="line">          &#125; else &#123;</div><div class="line">              view.setTranslationX(-horzMargin + vertMargin / 2);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          // Scale the page down (between MIN_SCALE and 1)</div><div class="line">          view.setScaleX(scaleFactor);</div><div class="line">          view.setScaleY(scaleFactor);</div><div class="line"></div><div class="line">          // Fade the page relative to its size.</div><div class="line">          view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE)</div><div class="line">                  / (1 - MIN_SCALE) * (1 - MIN_ALPHA));</div><div class="line"></div><div class="line">      &#125; else &#123; // (1,+Infinity]</div><div class="line">          // This page is way off-screen to the right.</div><div class="line">          view.setAlpha(0);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4、ViewPager的简单使用"><a href="#4、ViewPager的简单使用" class="headerlink" title="4、ViewPager的简单使用"></a>4、ViewPager的简单使用</h3><ul>
+<li><p>布局文件声明控件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!--填充整个页面的ViewPager--&gt;</div><div class="line">   &lt;android.support.v4.view.ViewPager</div><div class="line">      android:id=&quot;@+id/viewpager&quot;</div><div class="line">      android:layout_width=&quot;match_parent&quot;</div><div class="line">      android:layout_height=&quot;match_parent&quot;/&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>代码中设置数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);</div><div class="line">自定义类实现PagerAdapter，填充显示数据</div><div class="line">viewPager.setAdapter(new MyAdapter());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5、ViewPager结合第三方库实现小圆点指示器效果"><a href="#5、ViewPager结合第三方库实现小圆点指示器效果" class="headerlink" title="5、ViewPager结合第三方库实现小圆点指示器效果"></a>5、ViewPager结合第三方库实现小圆点指示器效果</h3><p><a href="https://github.com/ongakuer/CircleIndicator" target="_blank" rel="external">https://github.com/ongakuer/CircleIndicator</a></p>
+<h3 id="6、ViewPager结合design库实现tab切换"><a href="#6、ViewPager结合design库实现tab切换" class="headerlink" title="6、ViewPager结合design库实现tab切换"></a>6、ViewPager结合design库实现tab切换</h3><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0731/3247.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0731/3247.html</a></p>
+<h3 id="7、基于ViewPager实现广告轮播控件"><a href="#7、基于ViewPager实现广告轮播控件" class="headerlink" title="7、基于ViewPager实现广告轮播控件"></a>7、基于ViewPager实现广告轮播控件</h3><p><a href="https://github.com/daimajia/AndroidImageSlider" target="_blank" rel="external">https://github.com/daimajia/AndroidImageSlider</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/androidBlog/tags/android控件使用/" rel="tag"># android控件使用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/androidBlog/2017/12/19/Android常用工具类/" rel="next" title="Android常用工具栏">
+                <i class="fa fa-chevron-left"></i> Android常用工具栏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/androidBlog/images/avatar.jpg"
+                alt="Ericchen" />
+            
+              <p class="site-author-name" itemprop="name">Ericchen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/androidBlog/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/androidBlog/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/androidBlog/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/androidBlog/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/chenweijieNo1" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1、ViewPager的简介与作用"><span class="nav-number">2.</span> <span class="nav-text">1、ViewPager的简介与作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、ViewPager的适配器"><span class="nav-number"></span> <span class="nav-text">2、ViewPager的适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、自定义ViewPager的切换效果"><span class="nav-number"></span> <span class="nav-text">3、自定义ViewPager的切换效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、ViewPager的简单使用"><span class="nav-number"></span> <span class="nav-text">4、ViewPager的简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、ViewPager结合第三方库实现小圆点指示器效果"><span class="nav-number"></span> <span class="nav-text">5、ViewPager结合第三方库实现小圆点指示器效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、ViewPager结合design库实现tab切换"><span class="nav-number"></span> <span class="nav-text">6、ViewPager结合design库实现tab切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、基于ViewPager实现广告轮播控件"><span class="nav-number"></span> <span class="nav-text">7、基于ViewPager实现广告轮播控件</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ericchen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/androidBlog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/androidBlog/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/androidBlog/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/androidBlog/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/androidBlog/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/androidBlog/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
