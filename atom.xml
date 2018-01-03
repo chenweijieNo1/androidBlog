@@ -6,7 +6,7 @@
   <link href="/androidBlog/atom.xml" rel="self"/>
   
   <link href="https://ericchenwj.github.io/androidBlog/"/>
-  <updated>2017-12-26T07:59:18.325Z</updated>
+  <updated>2018-01-03T08:07:59.925Z</updated>
   <id>https://ericchenwj.github.io/androidBlog/</id>
   
   <author>
@@ -15,6 +15,118 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序开发系列之flex布局</title>
+    <link href="https://ericchenwj.github.io/androidBlog/2018/01/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%B3%BB%E5%88%97%E4%B9%8Bflex%E5%B8%83%E5%B1%80/"/>
+    <id>https://ericchenwj.github.io/androidBlog/2018/01/03/微信小程序开发系列之flex布局/</id>
+    <published>2018-01-03T07:15:39.000Z</published>
+    <updated>2018-01-03T08:07:59.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>微信小程序页面布局方式采用的是flex布局，flex可以简单、完整、响应式的实现各种页面布局，flex布局提供了元素在容器中的对齐，方向及顺序，能够调整子元素在不同屏幕大小中能够用最合适的方法填充合适的空间。</p><p>flex布局的特点：</p><ul><li>任意方向的伸缩，向左向右，向上向下</li><li>在样式层可以调换和重排顺序</li><li>主轴和侧轴配置方便</li><li>子元素的空间拉伸和填充</li><li>沿着容器对齐</li></ul><p>display:block 指定为块内容器模式，总是使用新行开始显示，微信小程序的视图容器（view，scroll-view和swiper）默认都是display:block</p><p>display:flex 指定为行内容器模式，在一行内显示子元素，可以使用flex-wrap属性指定是否换行</p><p>两者的效果区别如下所示:<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;view class=&quot;container1&quot;&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        1</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        2</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        3</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        4</div><div class="line">    &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div><div class="line"></div><div class="line">.container1&#123;</div><div class="line">    height: 100%;</div><div class="line">    width:100%;</div><div class="line">&#125;</div><div class="line">.item1&#123;</div><div class="line">    height:100rpx;</div><div class="line">    width:100rpx;</div><div class="line">    background-color:cyan;</div><div class="line">    border: 1px solid #fff</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>当container1加上display:block; 效果如下所示：<br><img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/1.png" alt="1.png" title=""></p><p>当container1加上display:flex; 效果如下所示:<br><img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/2.png" alt="2.png" title=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;微信小程序页面布局方式采用的是flex布局，flex可以简单、完整、响应式的实现各种页面布局，flex布局提供了元素在容器中的对齐，方向及顺序，能够调整子元素在不同屏幕大小中能够用最合适的方法填充合适的空间。&lt;/p&gt;
+&lt;p&gt;flex布局的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;任意方向的伸缩，向左向右，向上向下&lt;/li&gt;
+&lt;li&gt;在样式层可以调换和重排顺序&lt;/li&gt;
+&lt;li&gt;主轴和侧轴配置方便&lt;/li&gt;
+&lt;li&gt;子元素的空间拉伸和填充&lt;/li&gt;
+&lt;li&gt;沿着容器对齐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;display:block 指定为块内容器模式，总是使用新行开始显示，微信小程序的视图容器（view，scroll-view和swiper）默认都是display:block&lt;/p&gt;
+&lt;p&gt;display:flex 指定为行内容器模式，在一行内显示子元素，可以使用flex-wrap属性指定是否换行&lt;/p&gt;
+&lt;p&gt;两者的效果区别如下所示:&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="https://ericchenwj.github.io/androidBlog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript学习记录</title>
+    <link href="https://ericchenwj.github.io/androidBlog/2017/12/28/JavaScript%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>https://ericchenwj.github.io/androidBlog/2017/12/28/JavaScript学习记录/</id>
+    <published>2017-12-28T07:30:00.000Z</published>
+    <updated>2017-12-28T08:05:45.533Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、-和-的区别"><a href="#1、-和-的区别" class="headerlink" title="1、==和===的区别"></a>1、==和===的区别</h3><p>“===”叫做严格运算符，“==”叫做相等运算符<br>严格运算符的运算规则如下：</p><ul><li>不同类型值<br>如果两个值的类型不同，直接返回false</li><li>同一类的原始类型值<br>同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false</li><li>同一类的复合类型值<br>两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象</li><li>undefined和null<br>undefined 和 null 与自身严格相等<br>null === null  //true<br>undefined === undefined  //true<a id="more"></a>相等运算符在比较相同类型的数据时，与严格相等运算符完全一样。<br>在比较不同类型的数据时，相等运算符会先将数据进行类型转换，然后再用严格相等运算符比较。类型转换规则如下：</li><li>原始类型的值<br>原始类型的数据会转换成数值类型再进行比较</li><li>对象与原始类型值比较<br>对象（这里指广义的对象，包括数值和函数）与原始类型的值比较时，对象转化成原始类型的值，再进行比较</li><li>undefined和null<br>undefined和null与其他类型的值比较时，结果都为false，它们互相比较时结果为true</li><li>相等运算符的缺点<br>相等运算符隐藏的类型转换，会带来一些违反直觉的结果</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&apos;&apos; == &apos;0&apos;           // false</div><div class="line">0 == &apos;&apos;             // true</div><div class="line">0 == &apos;0&apos;            // true</div><div class="line"></div><div class="line">false == &apos;false&apos;    // false</div><div class="line">false == &apos;0&apos;        // true</div><div class="line"></div><div class="line">false == undefined  // false</div><div class="line">false == null       // false</div><div class="line">null == undefined   // true</div><div class="line"></div><div class="line">&apos; \t\r\n &apos; == 0     // true</div></pre></td></tr></table></figure><p>注意：建议尽量不要使用相等运算符<br>在程序中使用相等运算符有可能会造成不同的结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var a = undefined;</div><div class="line">if(!a)&#123;</div><div class="line">    console.log(&quot;1&quot;); //1</div><div class="line">&#125;</div><div class="line">var a = undefined;</div><div class="line">if(a == null)&#123;</div><div class="line">    console.log(&quot;1&quot;); //1</div><div class="line">&#125;</div><div class="line">var a = undefined;</div><div class="line">if(a === null)&#123;</div><div class="line">    console.log(&quot;1&quot;); //无输出</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、-和-的区别&quot;&gt;&lt;a href=&quot;#1、-和-的区别&quot; class=&quot;headerlink&quot; title=&quot;1、==和===的区别&quot;&gt;&lt;/a&gt;1、==和===的区别&lt;/h3&gt;&lt;p&gt;“===”叫做严格运算符，“==”叫做相等运算符&lt;br&gt;严格运算符的运算规则如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不同类型值&lt;br&gt;如果两个值的类型不同，直接返回false&lt;/li&gt;
+&lt;li&gt;同一类的原始类型值&lt;br&gt;同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false&lt;/li&gt;
+&lt;li&gt;同一类的复合类型值&lt;br&gt;两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象&lt;/li&gt;
+&lt;li&gt;undefined和null&lt;br&gt;undefined 和 null 与自身严格相等&lt;br&gt;null === null  //true&lt;br&gt;undefined === undefined  //true&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://ericchenwj.github.io/androidBlog/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="https://ericchenwj.github.io/androidBlog/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序开发系列之APP生命周期</title>
+    <link href="https://ericchenwj.github.io/androidBlog/2017/12/28/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E7%B3%BB%E5%88%97%E4%B9%8BAPP%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>https://ericchenwj.github.io/androidBlog/2017/12/28/微信小程序开发系列之APP生命周期/</id>
+    <published>2017-12-28T07:00:00.000Z</published>
+    <updated>2017-12-28T08:05:43.078Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1、微信小程序APP的生命周期方法"><a href="#1、微信小程序APP的生命周期方法" class="headerlink" title="1、微信小程序APP的生命周期方法"></a>1、微信小程序APP的生命周期方法</h4><p>微信小程序启动时，调用的生命周期方法为：onLaunch-&gt;onShow-&gt;onLoad</p><p>当小程序置于后台时，系统回调生命周期方法：onHide</p><h3 id="2、如何调用全局方法和变量"><a href="#2、如何调用全局方法和变量" class="headerlink" title="2、如何调用全局方法和变量"></a>2、如何调用全局方法和变量</h3><p>在app.js中可以自定义全局变量，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myData:&#123;</div><div class="line">    username:&quot;abc&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p><p>如果想在index.js中调用username，则如下所示：先获取全局app，再获取myData，再获取username<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var app = getApp() //获取全局app</div><div class="line">Page(&#123;</div><div class="line">    data: &#123;</div><div class="line">        name: &apos;test&apos;</div><div class="line">    &#125;,</div><div class="line">    test: function()&#123;</div><div class="line">        this.setData(name:app.myData.username) //通过app获取全局变量username</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;1、微信小程序APP的生命周期方法&quot;&gt;&lt;a href=&quot;#1、微信小程序APP的生命周期方法&quot; class=&quot;headerlink&quot; title=&quot;1、微信小程序APP的生命周期方法&quot;&gt;&lt;/a&gt;1、微信小程序APP的生命周期方法&lt;/h4&gt;&lt;p&gt;微信小程序启动时，调用的生命周期方法为：onLaunch-&amp;gt;onShow-&amp;gt;onLoad&lt;/p&gt;
+&lt;p&gt;当小程序置于后台时，系统回调生命周期方法：onHide&lt;/p&gt;
+&lt;h3 id=&quot;2、如何调用全局方法和变量&quot;&gt;&lt;a href=&quot;#2、如何调用全局方法和变量&quot; class=&quot;headerlink&quot; title=&quot;2、如何调用全局方法和变量&quot;&gt;&lt;/a&gt;2、如何调用全局方法和变量&lt;/h3&gt;&lt;p&gt;在app.js中可以自定义全局变量，如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;myData:&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    username:&amp;quot;abc&amp;quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;,&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果想在index.js中调用username，则如下所示：先获取全局app，再获取myData，再获取username&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;var app = getApp() //获取全局app&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Page(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    data: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        name: &amp;apos;test&amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    test: function()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        this.setData(name:app.myData.username) //通过app获取全局变量username&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="微信小程序" scheme="https://ericchenwj.github.io/androidBlog/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+      <category term="微信小程序" scheme="https://ericchenwj.github.io/androidBlog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里巴巴Java开发手册(易忽略点记录)</title>
+    <link href="https://ericchenwj.github.io/androidBlog/2017/12/27/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4Java%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C(%E6%98%93%E5%BF%BD%E7%95%A5%E7%82%B9%E8%AE%B0%E5%BD%95)/"/>
+    <id>https://ericchenwj.github.io/androidBlog/2017/12/27/阿里巴巴Java开发手册(易忽略点记录)/</id>
+    <published>2017-12-27T02:02:00.000Z</published>
+    <updated>2017-12-28T06:56:42.101Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在看阿里巴巴出版的&lt;&lt;阿里巴巴Java开发手册&gt;&gt;，于是写篇文章记录下编写代码时常忽略的地方，[下载地址]{<a href="http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}" target="_blank" rel="external">http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}</a></p><h3 id="1、编程规约"><a href="#1、编程规约" class="headerlink" title="1、编程规约"></a>1、编程规约</h3><ul><li><p>Service / DAO 层方法命名规约<br>1 ） 获取单个对象的方法用 get 作前缀。<br>2 ） 获取多个对象的方法用 list 作前缀。<br>3 ） 获取统计值的方法用 count 作前缀。<br>4 ） 插入的方法用 save/insert 作前缀。<br>5 ） 删除的方法用 remove/delete 作前缀。<br>6 ） 修改的方法用 update 作前缀。</p></li><li><p>使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无<br>内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = &quot;a,b,c,,&quot;;</div><div class="line">String[] ary = str.split(&quot;,&quot;);</div><div class="line">// 预期大于 3，结果是 3</div><div class="line">System.out.println(ary.length);</div></pre></td></tr></table></figure></li></ul><a id="more"></a><ul><li>循环体内，字符串的连接方式，使用 StringBuilder 的 append 方法进行扩展</li><li>关于 hashCode 和 equals 的处理，遵循如下规则：<br>1） 只要重写 equals ，就必须重写 hashCode.<br>2） 因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须重写这两个方法.<br>3） 如果自定义对象作为 Map 的键，那么必须重写 hashCode 和 equals 。<br>说明： String 重写了 hashCode 和 equals 方法，所以我们可以非常愉快地使用 String 对象作为 key 来使用.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在看阿里巴巴出版的&amp;lt;&amp;lt;阿里巴巴Java开发手册&amp;gt;&amp;gt;，于是写篇文章记录下编写代码时常忽略的地方，[下载地址]{&lt;a href=&quot;http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1、编程规约&quot;&gt;&lt;a href=&quot;#1、编程规约&quot; class=&quot;headerlink&quot; title=&quot;1、编程规约&quot;&gt;&lt;/a&gt;1、编程规约&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Service / DAO 层方法命名规约&lt;br&gt;1 ） 获取单个对象的方法用 get 作前缀。&lt;br&gt;2 ） 获取多个对象的方法用 list 作前缀。&lt;br&gt;3 ） 获取统计值的方法用 count 作前缀。&lt;br&gt;4 ） 插入的方法用 save/insert 作前缀。&lt;br&gt;5 ） 删除的方法用 remove/delete 作前缀。&lt;br&gt;6 ） 修改的方法用 update 作前缀。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无&lt;br&gt;内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;String str = &amp;quot;a,b,c,,&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String[] ary = str.split(&amp;quot;,&amp;quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 预期大于 3，结果是 3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(ary.length);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://ericchenwj.github.io/androidBlog/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://ericchenwj.github.io/androidBlog/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>ViewPager使用详解</title>
