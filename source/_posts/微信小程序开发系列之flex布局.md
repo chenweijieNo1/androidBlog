@@ -17,5 +17,42 @@ display:block 指定为块内容器模式，总是使用新行开始显示，微
 display:flex 指定为行内容器模式，在一行内显示子元素，可以使用flex-wrap属性指定是否换行
 
 两者的效果区别如下所示:
+<!-- more -->
 ```
+<view class="container1">
+    <view class="item1">
+        1
+    </view>
+    <view class="item1">
+        2
+    </view>
+    <view class="item1">
+        3
+    </view>
+    <view class="item1">
+        4
+    </view>
+</view>
+
+.container1{
+    height: 100%;
+    width:100%;
+}
+.item1{
+    height:100rpx;
+    width:100rpx;
+    background-color:cyan;
+    border: 1px solid #fff
+}
 ```
+当container1加上display:block; 效果如下所示：
+{% asset_img 1.png %}
+
+当container1加上display:flex; 效果如下所示:
+{% asset_img 2.png %}
+
+
+
+
+
+
