@@ -16,3 +16,11 @@ tags:
 提交到远程分支#  git push origin 分支名
 
 <!-- more -->
+查看/修改用户名和邮箱地址
+$ git config user.name
+
+$ git config user.email
+
+$ git config --global user.name "username"
+
+$ git config --global user.email "email"
