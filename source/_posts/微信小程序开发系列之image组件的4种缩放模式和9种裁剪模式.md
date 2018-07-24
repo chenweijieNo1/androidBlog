@@ -24,6 +24,18 @@ http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg
 
 {% asset_img widthFix.png %}
 
+9种裁剪模式：
+
+- top  不缩放图片，只显示图片的顶部区域；
+- bottom 不缩放图片，只显示图片的底部区域；
+- center 不缩放图片，只显示图片的中间区域；
+- left 不缩放图片，只显示图片的左边区域；
+- right 不缩放图片，只显示图片的右边区域；
+- top left 不缩放图片，只显示图片的左上边区域；
+- top right 不缩放图片，只显示图片的右上边区域；
+- bottom left 不缩放图片，只显示图片的左下边区域；
+- bottom right 不缩放图片，只显示图片的右下边区域；
+
 
 
 

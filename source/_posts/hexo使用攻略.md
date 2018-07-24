@@ -50,3 +50,7 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/deployment.html)
+
+常见命令：
+
+https://hexo.io/zh-cn/docs/commands.html
