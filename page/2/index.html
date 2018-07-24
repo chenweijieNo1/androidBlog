@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/19/Android常用工具类/">
+    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2018/01/03/微信小程序开发系列之flex布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ericchen">
@@ -280,7 +280,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/androidBlog/2017/12/19/Android常用工具类/" itemprop="url">Android常用工具栏</a></h1>
+                <a class="post-title-link" href="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/" itemprop="url">微信小程序开发系列之flex布局</a></h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T14:36:00+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T15:15:39+08:00">
+                2018-01-03
               </time>
             
 
@@ -302,28 +302,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/androidBlog/categories/android工具/" itemprop="url" rel="index">
-                    <span itemprop="name">android工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -353,11 +331,21 @@
 
       
         
-          <h3 id="1、日志工具类"><a href="#1、日志工具类" class="headerlink" title="1、日志工具类"></a>1、日志工具类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line">import android.util.Log;  </div><div class="line">  </div><div class="line">/** </div><div class="line"> * Log统一管理类 </div><div class="line"> *  </div><div class="line"> */  </div><div class="line">public class LogUtils  </div><div class="line">&#123;  </div><div class="line">  </div><div class="line">    private LogUtils()  </div><div class="line">    &#123;  </div><div class="line">        /* cannot be instantiated */  </div><div class="line">        throw new UnsupportedOperationException(&quot;cannot be instantiated&quot;);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化  </div><div class="line">    private static final String TAG = &quot;LogUtil&quot;;  </div><div class="line">  </div><div class="line">    // 下面四个是默认tag的函数  </div><div class="line">    public static void i(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void d(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.d(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void e(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.e(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void v(String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.v(TAG, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    // 下面是传入自定义tag的函数  </div><div class="line">    public static void i(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void d(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void e(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    public static void v(String tag, String msg)  </div><div class="line">    &#123;  </div><div class="line">        if (isDebug)  </div><div class="line">            Log.i(tag, msg);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2、Toast管理类"><a href="#2、Toast管理类" class="headerlink" title="2、Toast管理类"></a>2、Toast管理类</h3>
+          <p>微信小程序页面布局方式采用的是flex布局，flex可以简单、完整、响应式的实现各种页面布局，flex布局提供了元素在容器中的对齐，方向及顺序，能够调整子元素在不同屏幕大小中能够用最合适的方法填充合适的空间。</p>
+<p>flex布局的特点：</p>
+<ul>
+<li>任意方向的伸缩，向左向右，向上向下</li>
+<li>在样式层可以调换和重排顺序</li>
+<li>主轴和侧轴配置方便</li>
+<li>子元素的空间拉伸和填充</li>
+<li>沿着容器对齐</li>
+</ul>
+<p>display:block 指定为块内容器模式，总是使用新行开始显示，微信小程序的视图容器（view，scroll-view和swiper）默认都是display:block</p>
+<p>display:flex 指定为行内容器模式，在一行内显示子元素，可以使用flex-wrap属性指定是否换行</p>
+<p>两者的效果区别如下所示:<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/androidBlog/2017/12/19/Android常用工具类/#more" rel="contents">
+            <a class="btn" href="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -408,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/19/Android界面性能调优手册/">
+    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/28/JavaScript学习记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ericchen">
@@ -427,7 +415,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/androidBlog/2017/12/19/Android界面性能调优手册/" itemprop="url">Android界面性能调优手册</a></h1>
+                <a class="post-title-link" href="/androidBlog/2017/12/28/JavaScript学习记录/" itemprop="url">JavaScript学习记录</a></h1>
         
 
         <div class="post-meta">
@@ -439,8 +427,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T11:31:00+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T15:30:00+08:00">
+                2017-12-28
               </time>
             
 
@@ -462,8 +450,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/androidBlog/categories/android优化/" itemprop="url" rel="index">
-                    <span itemprop="name">android优化</span>
+                  <a href="/androidBlog/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -500,442 +488,482 @@
 
       
         
-          
-            <p>这里转载一篇好文分享给各位看看~~</p>
-<p><a href="https://yq.aliyun.com/articles/152066?spm=5176.8067842.tagmain.57.1K9u3l" target="_blank" rel="external">Android界面性能调优手册</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/18/WebViewStudy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ericchen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="androidBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/androidBlog/2017/12/18/WebViewStudy/" itemprop="url">WebViewStudy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T11:45:00+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/androidBlog/categories/android常用知识/" itemprop="url" rel="index">
-                    <span itemprop="name">android常用知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>WebView 全方面的使用，JS交互、进度条、发短信、打电话、发邮件、上传图片、字体设置、视频全屏播放等<br><a href="https://github.com/youlookwhat/WebViewStudy" target="_blank" rel="external">WebView使用Demo</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/15/android解决输入法键盘遮盖布局问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ericchen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="androidBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/androidBlog/2017/12/15/android解决输入法键盘遮盖布局问题/" itemprop="url">android解决输入法键盘遮盖布局问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T15:12:55+08:00">
-                2017-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/androidBlog/categories/android常见问题/" itemprop="url" rel="index">
-                    <span itemprop="name">android常见问题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>代码如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">     * addLayoutListener方法如下</div><div class="line">     * @param main 根布局</div><div class="line">     * @param scroll 需要显示的最下方View</div><div class="line">     */</div><div class="line">public void addLayoutListener(final View main, final View scroll) &#123;</div><div class="line">        main.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() &#123;</div><div class="line">            @Override</div><div class="line">            public void onGlobalLayout() &#123;</div><div class="line">                Rect rect = new Rect();</div><div class="line">                //1、获取main在窗体的可视区域</div><div class="line">                main.getWindowVisibleDisplayFrame(rect);</div><div class="line">                //2、获取main在窗体的不可视区域高度，在键盘没有弹起时，main.getRootView().getHeight()调节度应该和rect.bottom高度一样</div><div class="line">                int mainInvisibleHeight = main.getRootView().getHeight() - rect.bottom;</div><div class="line">                int screenHeight = main.getRootView().getHeight();//屏幕高度</div><div class="line">                RelativeLayout scrollView = (RelativeLayout) main.findViewById(R.id.input_panel);</div><div class="line">                //3、不可见区域大于屏幕本身高度的1/4：说明键盘弹起了</div><div class="line">                if (mainInvisibleHeight &gt; screenHeight / 4) &#123;</div><div class="line">                    int[] location = new int[2];</div><div class="line">                    scroll.getLocationInWindow(location);</div><div class="line">                    // 4、获取Scroll的窗体坐标，算出main需要滚动的高度</div><div class="line">                    int srollHeight = (location[1] + scroll.getHeight()) - rect.bottom;</div><div class="line">                    //5、让界面整体上移键盘的高度</div><div class="line">                    if (viewScrollReset) &#123;</div><div class="line">                        scrollView.scrollTo(0, srollHeight + 10);</div><div class="line">                        viewScrollReset = false;</div><div class="line">                    &#125;</div><div class="line">                &#125; else &#123;</div><div class="line">                    //3、不可见区域小于屏幕高度1/4时,说明键盘隐藏了，把界面下移，移回到原有高度</div><div class="line">                    scrollView.scrollTo(0, 0);</div><div class="line">                    viewScrollReset = true;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/15/Markdown的常用语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ericchen">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="androidBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/androidBlog/2017/12/15/Markdown的常用语法/" itemprop="url">Markdown的常用语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T14:17:11+08:00">
-                2017-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/androidBlog/categories/Markdown/" itemprop="url" rel="index">
-                    <span itemprop="name">Markdown</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>注意：Markdown使用#、+、*等符号来标记， 符号后面必须跟上至少1个空格才有效！</p>
-<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><p>在Markdown当中设置标题，有两种方式：<br>第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。<br>第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~6级标题，1级标题字体最大）</p>
-<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><p>支持有序列表和无序列表</p>
-<p>无序列表使用-、+和*作为列表标记</p>
-<p>有序列表则使用数字加英文句点.来表示<br></p>
+          <h3 id="1、-和-的区别"><a href="#1、-和-的区别" class="headerlink" title="1、==和===的区别"></a>1、==和===的区别</h3><p>“===”叫做严格运算符，“==”叫做相等运算符<br>严格运算符的运算规则如下：</p>
+<ul>
+<li>不同类型值<br>如果两个值的类型不同，直接返回false</li>
+<li>同一类的原始类型值<br>同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回true，值不同就返回false</li>
+<li>同一类的复合类型值<br>两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个对象</li>
+<li>undefined和null<br>undefined 和 null 与自身严格相等<br>null === null  //true<br>undefined === undefined  //true</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/androidBlog/2017/12/15/Markdown的常用语法/#more" rel="contents">
+            <a class="btn" href="/androidBlog/2017/12/28/JavaScript学习记录/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/28/微信小程序开发系列之APP生命周期/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ericchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="androidBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/androidBlog/2017/12/28/微信小程序开发系列之APP生命周期/" itemprop="url">微信小程序开发系列之APP生命周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T15:00:00+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/androidBlog/categories/微信小程序/" itemprop="url" rel="index">
+                    <span itemprop="name">微信小程序</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="1、微信小程序APP的生命周期方法"><a href="#1、微信小程序APP的生命周期方法" class="headerlink" title="1、微信小程序APP的生命周期方法"></a>1、微信小程序APP的生命周期方法</h4><p>微信小程序启动时，调用的生命周期方法为：onLaunch-&gt;onShow-&gt;onLoad</p>
+<p>当小程序置于后台时，系统回调生命周期方法：onHide</p>
+<h3 id="2、如何调用全局方法和变量"><a href="#2、如何调用全局方法和变量" class="headerlink" title="2、如何调用全局方法和变量"></a>2、如何调用全局方法和变量</h3><p>在app.js中可以自定义全局变量，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">myData:&#123;</div><div class="line">    username:&quot;abc&quot;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>如果想在index.js中调用username，则如下所示：先获取全局app，再获取myData，再获取username<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var app = getApp() //获取全局app</div><div class="line">Page(&#123;</div><div class="line">    data: &#123;</div><div class="line">        name: &apos;test&apos;</div><div class="line">    &#125;,</div><div class="line">    test: function()&#123;</div><div class="line">        this.setData(name:app.myData.username) //通过app获取全局变量username</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/androidBlog/2017/12/28/微信小程序开发系列之APP生命周期/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/27/阿里巴巴Java开发手册(易忽略点记录)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ericchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="androidBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/androidBlog/2017/12/27/阿里巴巴Java开发手册(易忽略点记录)/" itemprop="url">阿里巴巴Java开发手册(易忽略点记录)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T10:02:00+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/androidBlog/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近在看阿里巴巴出版的&lt;&lt;阿里巴巴Java开发手册&gt;&gt;，于是写篇文章记录下编写代码时常忽略的地方，[下载地址]{<a href="http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}" target="_blank" rel="external">http://techforum-img.cn-hangzhou.oss-pub.aliyun-inc.com/Java_1512024443940.pdf}</a></p>
+<h3 id="1、编程规约"><a href="#1、编程规约" class="headerlink" title="1、编程规约"></a>1、编程规约</h3><ul>
+<li><p>Service / DAO 层方法命名规约<br>1 ） 获取单个对象的方法用 get 作前缀。<br>2 ） 获取多个对象的方法用 list 作前缀。<br>3 ） 获取统计值的方法用 count 作前缀。<br>4 ） 插入的方法用 save/insert 作前缀。<br>5 ） 删除的方法用 remove/delete 作前缀。<br>6 ） 修改的方法用 update 作前缀。</p>
+</li>
+<li><p>使用索引访问用 String 的 split 方法得到的数组时，需做最后一个分隔符后有无<br>内容的检查，否则会有抛 IndexOutOfBoundsException 的风险。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String str = &quot;a,b,c,,&quot;;</div><div class="line">String[] ary = str.split(&quot;,&quot;);</div><div class="line">// 预期大于 3，结果是 3</div><div class="line">System.out.println(ary.length);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/androidBlog/2017/12/27/阿里巴巴Java开发手册(易忽略点记录)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ericchenwj.github.io/androidBlog/androidBlog/2017/12/21/ViewPager使用详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ericchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/androidBlog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="androidBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/androidBlog/2017/12/21/ViewPager使用详解/" itemprop="url">ViewPager使用详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T14:11:00+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/androidBlog/categories/android控件使用/" itemprop="url" rel="index">
+                    <span itemprop="name">android控件使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在开发中ViewPager是不可或缺的控件，引导页、轮播图、卡片画廊等效果大多数是用ViewPager来实现，该文章主要是梳理下ViewPager的用法。<br>主要包括以下内容：</p>
+<ul>
+<li>ViewPager的简介与作用</li>
+<li>ViewPager的适配器</li>
+<li>自定义ViewPager的切换效果</li>
+<li>ViewPager的基础使用</li>
+<li>ViewPager结合第三方库实现小圆点指示器效果</li>
+<li>ViewPager结合design库实现tab切换</li>
+<li>基于ViewPager实现广告轮播控件</li>
+</ul>
+<h4 id="1、ViewPager的简介与作用"><a href="#1、ViewPager的简介与作用" class="headerlink" title="1、ViewPager的简介与作用"></a>1、ViewPager的简介与作用</h4><p>ViewPager是android扩展包v4包中的类，继承自ViewGroup，它是一个容器类，可以添加其他的view，实现多个view左右切换、滑动，这个控件大家使用比较多，也比较熟悉了，下面说下常用的几个方法：</p>
+<ul>
+<li>setAdapter(PagerAdapter adapter) 设置适配器</li>
+<li>setOffscreenPageLimit(int limit) 设置缓存的页面个数，默认是1个</li>
+<li>setCurrentItem(int item) 跳转到某个页面</li>
+<li>setOnPageChangeListener(…) 设置页面滑动时的监听器</li>
+<li>setPageTransformer(…) 设置页面切换时的动画效果</li>
+<li>setPageMargin(int margin) 设置不同页面之间的间隔</li>
+</ul>
+<h3 id="2、ViewPager的适配器"><a href="#2、ViewPager的适配器" class="headerlink" title="2、ViewPager的适配器"></a>2、ViewPager的适配器</h3><p>ViewPager需要设置PagerAdapter来完成页面和数据的绑定，这个PagerAdapter是个基类，我们经常使用它的两个子类：FragmentPagerAdapter和FragmentStatePagerAdapter，先说说它们之间的使用区别吧。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/androidBlog/2017/12/21/ViewPager使用详解/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -977,7 +1005,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/androidBlog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/androidBlog/">1</a><span class="page-number current">2</span><a class="page-number" href="/androidBlog/page/3/">3</a><a class="extend next" rel="next" href="/androidBlog/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/androidBlog/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/androidBlog/">1</a><span class="page-number current">2</span><a class="page-number" href="/androidBlog/page/3/">3</a><a class="page-number" href="/androidBlog/page/4/">4</a><a class="extend next" rel="next" href="/androidBlog/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1027,7 +1055,7 @@
               
                 <a href="/androidBlog/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1038,7 +1066,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/androidBlog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1049,7 +1077,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/androidBlog/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

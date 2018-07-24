@@ -91,7 +91,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ericchenwj.github.io/androidBlog/2018/01/03/微信小程序开发系列之flex布局/1.png">
 <meta property="og:image" content="https://ericchenwj.github.io/androidBlog/2018/01/03/微信小程序开发系列之flex布局/2.png">
-<meta property="og:updated_time" content="2018-01-03T08:07:59.925Z">
+<meta property="og:image" content="https://ericchenwj.github.io/androidBlog/2018/01/03/微信小程序开发系列之flex布局/3.png">
+<meta property="og:image" content="https://ericchenwj.github.io/androidBlog/2018/01/03/微信小程序开发系列之flex布局/4.png">
+<meta property="og:updated_time" content="2018-01-03T08:40:49.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序开发系列之flex布局">
 <meta name="twitter:description" content="微信小程序页面布局方式采用的是flex布局，flex可以简单、完整、响应式的实现各种页面布局，flex布局提供了元素在容器中的对齐，方向及顺序，能够调整子元素在不同屏幕大小中能够用最合适的方法填充合适的空间。 flex布局的特点：  任意方向的伸缩，向左向右，向上向下 在样式层可以调换和重排顺序 主轴和侧轴配置方便 子元素的空间拉伸和填充 沿着容器对齐  display:block 指定为块内容器">
@@ -349,6 +351,13 @@
 <p>两者的效果区别如下所示:<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;view class=&quot;container1&quot;&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        1</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        2</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        3</div><div class="line">    &lt;/view&gt;</div><div class="line">    &lt;view class=&quot;item1&quot;&gt;</div><div class="line">        4</div><div class="line">    &lt;/view&gt;</div><div class="line">&lt;/view&gt;</div><div class="line"></div><div class="line">.container1&#123;</div><div class="line">    height: 100%;</div><div class="line">    width:100%;</div><div class="line">&#125;</div><div class="line">.item1&#123;</div><div class="line">    height:100rpx;</div><div class="line">    width:100rpx;</div><div class="line">    background-color:cyan;</div><div class="line">    border: 1px solid #fff</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>当container1加上display:block; 效果如下所示：<br><img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/1.png" alt="1.png" title=""></p>
 <p>当container1加上display:flex; 效果如下所示:<br><img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/2.png" alt="2.png" title=""></p>
+<p>下面简单介绍几个属性：</p>
+<ul>
+<li>flex-direction 设置排列方向，有四个可选值：row(从左到右的水平方向) row-reverse(从右到左) cloumn(从上到下的竖直方向) column-reverse(从下到上)</li>
+<li>flex-wrap<br>flex-wrap:nowrap  不换行填充，可能会改变大小<img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/3.png" alt="3.png" title="">
+</li>
+</ul>
+<p>flex-wrap:wrap 不改变大小，自动换行<br><img src="/androidBlog/2018/01/03/微信小程序开发系列之flex布局/4.png" alt="4.png" title=""></p>
 
       
     </div>
@@ -388,6 +397,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/androidBlog/2018/01/11/开源类库推荐/" rel="prev" title="开源类库推荐">
+                开源类库推荐 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -459,7 +472,7 @@
               
                 <a href="/androidBlog/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -470,7 +483,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/androidBlog/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -481,7 +494,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/androidBlog/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
